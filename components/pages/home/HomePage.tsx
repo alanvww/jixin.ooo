@@ -24,7 +24,7 @@ export function HomePage({ page, settings, preview, loading }: HomePageProps) {
       <HomePageHead page={page} settings={settings} />
 
       <Layout settings={settings} preview={preview} loading={loading}>
-        <div className="space-y-20">
+        <div className="space-y-20" id="mainDiv">
           {/* Header */}
           {title && <Header centered title={title} description={overview} />}
           {/* Showcase projects */}
