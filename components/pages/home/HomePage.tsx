@@ -1,13 +1,23 @@
+import { Canvas, useFrame } from '@react-three/fiber'
+import { Navbar } from 'components/global/Navbar'
+import PreviewNavbar from 'components/global/PreviewNavbar'
 import { ProjectListItem } from 'components/pages/home/ProjectListItem'
+import { PreviewBanner } from 'components/preview/PreviewBanner'
 import { Header } from 'components/shared/Header'
 import Layout from 'components/shared/Layout'
 import ScrollUp from 'components/shared/ScrollUp'
 import { resolveHref } from 'lib/sanity.links'
 import Link from 'next/link'
+import Script from 'next/script'
+import * as React from 'react'
+import { useRef, useState } from 'react'
+import * as THREE from 'three'
 import type { HomePagePayload } from 'types'
 import { SettingsPayload } from 'types'
 
 import HomePageHead from './HomePageHead'
+
+import { HydraBackground } from 'components/shared/HydraBackground'
 
 export interface HomePageProps {
   settings: SettingsPayload
@@ -23,31 +33,14 @@ export function HomePage({ page, settings, preview, loading }: HomePageProps) {
     <>
       <HomePageHead page={page} settings={settings} />
 
-      <Layout settings={settings} preview={preview} loading={loading}>
-        <div className="space-y-20" id="mainDiv">
-          {/* Header */}
-          {title && <Header centered title={title} description={overview} />}
-          {/* Showcase projects */}
-          {showcaseProjects && showcaseProjects.length > 0 && (
-            <div className="mx-auto max-w-[100rem] rounded-md border">
-              {showcaseProjects.map((project, key) => {
-                const href = resolveHref(project._type, project.slug)
-                if (!href) {
-                  return null
-                }
-                return (
-                  <Link key={key} href={href}>
-                    <ProjectListItem project={project} odd={key % 2} />
-                  </Link>
-                )
-              })}
-            </div>
-          )}
+      {preview && <PreviewBanner loading={loading} />}
+      {preview ? (
+        <PreviewNavbar settings={settings} />
+      ) : (
+        <Navbar menuItems={settings?.menuItems} />
+      )}
 
-          {/* Workaround: scroll to top on route change */}
-          <ScrollUp />
-        </div>
-      </Layout>
+      <HydraBackground />
     </>
   )
 }
