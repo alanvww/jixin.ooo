@@ -3,7 +3,9 @@ import { Navbar } from 'components/global/Navbar'
 import PreviewNavbar from 'components/global/PreviewNavbar'
 import { ProjectListItem } from 'components/pages/home/ProjectListItem'
 import { PreviewBanner } from 'components/preview/PreviewBanner'
+import AnimeBackground from 'components/shared/AnimeBackground'
 import { Header } from 'components/shared/Header'
+import { HydraBackground } from 'components/shared/HydraBackground'
 import Layout from 'components/shared/Layout'
 import ScrollUp from 'components/shared/ScrollUp'
 import { resolveHref } from 'lib/sanity.links'
@@ -16,8 +18,6 @@ import type { HomePagePayload } from 'types'
 import { SettingsPayload } from 'types'
 
 import HomePageHead from './HomePageHead'
-
-import { HydraBackground } from 'components/shared/HydraBackground'
 
 export interface HomePageProps {
   settings: SettingsPayload
@@ -40,7 +40,7 @@ export function HomePage({ page, settings, preview, loading }: HomePageProps) {
         <Navbar menuItems={settings?.menuItems} />
       )}
 
-      <HydraBackground />
+      <AnimeBackground />
     </>
   )
 }
