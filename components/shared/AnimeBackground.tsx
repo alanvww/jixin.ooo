@@ -22,7 +22,7 @@ const AnimeBackground: React.FC = () => {
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const p5 = require('p5')
-      const circles: Circle[] = []
+      let circles: Circle[] = []
       const mouseRadius = 50
       const dodgeCooldown = 60 // 60 frames, or about 1 second at 60 fps
       const friction = 0.99
@@ -71,7 +71,8 @@ const AnimeBackground: React.FC = () => {
 
         p.setup = () => {
           p.createCanvas(p.windowWidth, p.windowHeight)
-          for (let i = 0; i < 8888; i++) {
+          const numberOfCircles = p.windowWidth <= 768 ? 3333 : 8888
+          for (let i = 0; i < numberOfCircles; i++) {
             circles.push(
               Circle(p.random(p.width), p.random(p.height), p.random(1, 3))
             )
@@ -97,6 +98,20 @@ const AnimeBackground: React.FC = () => {
           p.fill(0, 0, 0, 0)
           p.noStroke()
           p.ellipse(x, y, radius * 2)
+        }
+
+        p.windowResized = () => {
+          p.width = p.windowWidth
+          p.height = p.windowHeight
+          p.resizeCanvas(p.width, p.height)
+          circles = [] // Reset the circles array
+          const numberOfCircles = p.windowWidth <= 768 ? 3333 : 8888
+          console.log(numberOfCircles)
+          for (let i = 0; i < numberOfCircles; i++) {
+            circles.push(
+              Circle(p.random(p.width), p.random(p.height), p.random(1, 3))
+            )
+          }
         }
       }, sketchRef.current!)
     }
