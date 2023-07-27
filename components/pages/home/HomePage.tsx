@@ -1,5 +1,5 @@
 import { Canvas, useFrame } from '@react-three/fiber'
-import { Navbar } from 'components/global/Navbar'
+import { HomeNavbar } from 'components/global/HomeNavbar'
 import PreviewNavbar from 'components/global/PreviewNavbar'
 import { ProjectListItem } from 'components/pages/home/ProjectListItem'
 import { PreviewBanner } from 'components/preview/PreviewBanner'
@@ -37,7 +37,7 @@ export function HomePage({ page, settings, preview, loading }: HomePageProps) {
       {preview ? (
         <PreviewNavbar settings={settings} />
       ) : (
-        <Navbar menuItems={settings?.menuItems} />
+        <HomeNavbar menuItems={settings?.menuItems} />
       )}
 
       <AnimeBackground />

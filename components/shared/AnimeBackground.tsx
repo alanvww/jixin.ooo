@@ -117,7 +117,7 @@ const AnimeBackground: React.FC = () => {
     }
   }, [])
 
-  return <div ref={sketchRef} />
+  return <div ref={sketchRef} className="sticky" />
 }
 
 export default AnimeBackground
