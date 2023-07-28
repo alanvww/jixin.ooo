@@ -68,19 +68,27 @@ export default defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
-      name: 'duration',
-      title: 'Duration',
-      type: 'duration',
+      name: 'releaseDate',
+      title: 'Release date',
+      type: 'date',
+      options: {
+        dateFormat: 'YYYY-MM-DD',
+      },
     }),
     defineField({
-      name: 'client',
-      title: 'Client',
+      name: 'year',
+      title: 'Year',
+      type: 'number',
+    }),
+    defineField({
+      name: 'medium',
+      title: 'Medium',
       type: 'string',
     }),
     defineField({
-      name: 'site',
-      title: 'Site',
-      type: 'url',
+      name: 'size',
+      title: 'Size',
+      type: 'string',
     }),
     defineField({
       name: 'tags',

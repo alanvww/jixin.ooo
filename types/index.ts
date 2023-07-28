@@ -25,6 +25,7 @@ export interface ShowcaseProject {
   slug?: string
   tags?: string[]
   title?: string
+  year?: number
 }
 
 // Page payloads

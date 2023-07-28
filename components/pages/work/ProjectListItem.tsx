@@ -1,5 +1,6 @@
 import { CustomPortableText } from 'components/shared/CustomPortableText'
 import ImageBox from 'components/shared/ImageBox'
+import { urlForImage } from 'lib/sanity.image'
 import type { ShowcaseProject } from 'types'
 
 interface ProjectProps {
@@ -9,7 +10,34 @@ interface ProjectProps {
 
 export function ProjectListItem(props: ProjectProps) {
   const { project, odd } = props
+  console.log(project)
+  return (
+    <div
+      className={`grid h-48 gap-x-5 rounded-md border
+       text-[#ffffff]/80	antialiased  bg-blend-multiply   transition hover:ring-2 hover:ring-green-600`}
+      style={{
+        backgroundImage: `url(${urlForImage(project.coverImage)})`,
+        backgroundSize: 'cover',
+      }}
+    >
+      <div
+        className="backdrop-overlay rounded-md	p-3  
+        mix-blend-screen			  drop-shadow-lg		backdrop-blur-sm 
+      			 backdrop-brightness-50	   transition-all
+      hover:text-transparent hover:backdrop-blur-0 hover:backdrop-brightness-100
+      "
+      >
+        <div className="md:text-md text-md my-2	font-extrabold leading-relaxed drop-shadow-md 	 	 filter">
+          {project.year}
+        </div>
+        <div className="mb-5 text-xl	font-extrabold leading-relaxed	  filter  md:text-2xl ">
+          {project.title}
+        </div>
+      </div>
+    </div>
+  )
 
+  /*
   return (
     <div
       className={`flex flex-col gap-x-5 p-2 transition hover:bg-gray-50/50 xl:flex-row ${
@@ -27,7 +55,7 @@ export function ProjectListItem(props: ProjectProps) {
         <TextBox project={project} />
       </div>
     </div>
-  )
+  ) */
 }
 
 function TextBox({ project }: { project: ShowcaseProject }) {

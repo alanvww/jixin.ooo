@@ -24,6 +24,7 @@ export const workPageQuery = groq`
       "slug": slug.current,
       tags,
       title,
+      year,
     },
     title,
   }

@@ -26,10 +26,22 @@ export function WorkPage({ page, settings, preview, loading }: WorkPageProps) {
       <Layout settings={settings} preview={preview} loading={loading}>
         <div className="space-y-20">
           {/* Header */}
-          {title && <Header centered title={title} description={overview} />}
+          {title && (
+            <div
+              className={` text-center 
+      text-[#6E6E6E]`}
+            >
+              {/* Title */}
+              {title && (
+                <div className="text-3xl font-extrabold tracking-tight md:text-5xl">
+                  {title}
+                </div>
+              )}
+            </div>
+          )}
           {/* Showcase projects */}
           {showcaseProjects && showcaseProjects.length > 0 && (
-            <div className="mx-auto max-w-[100rem] rounded-md border">
+            <div className="mx-auto grid max-w-[100rem] gap-4 rounded-md xl:grid-cols-3">
               {showcaseProjects.map((project, key) => {
                 const href = resolveHref(project._type, project.slug)
                 if (!href) {
