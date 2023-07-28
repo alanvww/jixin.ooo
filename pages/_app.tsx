@@ -1,7 +1,7 @@
 import 'styles/index.css'
 
 import { AppProps } from 'next/app'
-import { IBM_Plex_Mono, Inter, PT_Serif } from 'next/font/google'
+import { IBM_Plex_Mono, Nunito_Sans, PT_Serif } from 'next/font/google'
 import { lazy } from 'react'
 
 const mono = IBM_Plex_Mono({
@@ -10,10 +10,10 @@ const mono = IBM_Plex_Mono({
   weight: ['500', '700'],
 })
 
-const sans = Inter({
+const sans = Nunito_Sans({
   variable: '--font-sans',
   subsets: ['latin'],
-  weight: ['500', '700', '800'],
+  weight: ['400', '500', '700', '800'],
 })
 
 const serif = PT_Serif({

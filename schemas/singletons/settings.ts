@@ -23,6 +23,9 @@ export default defineType({
               type: 'home',
             },
             {
+              type: 'work',
+            },
+            {
               type: 'page',
             },
             {

@@ -4,10 +4,10 @@ import { readToken } from 'lib/sanity.api'
 import { getClient } from 'lib/sanity.client'
 import { resolveHref } from 'lib/sanity.links'
 import {
-  homePageTitleQuery,
   projectBySlugQuery,
   projectPaths,
   settingsQuery,
+  workPageTitleQuery,
 } from 'lib/sanity.queries'
 import { GetStaticProps } from 'next'
 import { ProjectPayload, SettingsPayload } from 'types'
@@ -55,7 +55,7 @@ export const getStaticProps: GetStaticProps<PageProps, Query> = async (ctx) => {
     client.fetch<ProjectPayload | null>(projectBySlugQuery, {
       slug: params.slug,
     }),
-    client.fetch<string | null>(homePageTitleQuery),
+    client.fetch<string | null>(workPageTitleQuery),
   ])
 
   if (!project) {

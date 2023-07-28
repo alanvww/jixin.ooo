@@ -1,13 +1,13 @@
-import { HomePage } from 'components/pages/home/HomePage'
 import HomePagePreview from 'components/pages/home/HomePagePreview'
+import { WorkPage } from 'components/pages/work/WorkPage'
 import { readToken } from 'lib/sanity.api'
 import { getClient } from 'lib/sanity.client'
-import { homePageQuery, settingsQuery } from 'lib/sanity.queries'
+import { settingsQuery, workPageQuery } from 'lib/sanity.queries'
 import { GetStaticProps } from 'next'
-import { HomePagePayload, SettingsPayload } from 'types'
+import { SettingsPayload, WorkPagePayload } from 'types'
 
 interface PageProps {
-  page: HomePagePayload
+  page: WorkPagePayload
   settings: SettingsPayload
   preview: boolean
   token: string | null
@@ -17,18 +17,20 @@ interface Query {
   [key: string]: string
 }
 
-export default function IndexPage(props: PageProps) {
+export default function WorksPage(props: PageProps) {
   const { page, settings, preview } = props
 
   if (preview) {
     return <HomePagePreview page={page} settings={settings} />
   }
 
-  return <HomePage page={page} settings={settings} />
+  return <WorkPage page={page} settings={settings} />
 }
 
-const fallbackPage: HomePagePayload = {
+const fallbackPage: WorkPagePayload = {
   title: '',
+  overview: [],
+  showcaseProjects: [],
 }
 
 export const getStaticProps: GetStaticProps<PageProps, Query> = async (ctx) => {
@@ -37,7 +39,7 @@ export const getStaticProps: GetStaticProps<PageProps, Query> = async (ctx) => {
 
   const [settings, page] = await Promise.all([
     client.fetch<SettingsPayload | null>(settingsQuery),
-    client.fetch<HomePagePayload | null>(homePageQuery),
+    client.fetch<WorkPagePayload | null>(workPageQuery),
   ])
 
   return {

@@ -1,19 +1,10 @@
-import { Canvas, useFrame } from '@react-three/fiber'
+import { Footer } from 'components/global/Footer'
 import { HomeNavbar } from 'components/global/HomeNavbar'
 import PreviewNavbar from 'components/global/PreviewNavbar'
-import { ProjectListItem } from 'components/pages/home/ProjectListItem'
 import { PreviewBanner } from 'components/preview/PreviewBanner'
 import AnimeBackground from 'components/shared/AnimeBackground'
-import { Header } from 'components/shared/Header'
-import { HydraBackground } from 'components/shared/HydraBackground'
-import Layout from 'components/shared/Layout'
 import ScrollUp from 'components/shared/ScrollUp'
-import { resolveHref } from 'lib/sanity.links'
-import Link from 'next/link'
-import Script from 'next/script'
 import * as React from 'react'
-import { useRef, useState } from 'react'
-import * as THREE from 'three'
 import type { HomePagePayload } from 'types'
 import { SettingsPayload } from 'types'
 
@@ -27,20 +18,17 @@ export interface HomePageProps {
 }
 
 export function HomePage({ page, settings, preview, loading }: HomePageProps) {
-  const { overview, showcaseProjects, title = 'Personal website' } = page ?? {}
+  const { title = 'Personal website' } = page ?? {}
 
   return (
     <>
       <HomePageHead page={page} settings={settings} />
 
       {preview && <PreviewBanner loading={loading} />}
-      {preview ? (
-        <PreviewNavbar settings={settings} />
-      ) : (
-        <HomeNavbar menuItems={settings?.menuItems} />
-      )}
+      <HomeNavbar menuItems={settings?.menuItems} />
 
       <AnimeBackground />
+      <ScrollUp />
     </>
   )
 }

@@ -30,6 +30,11 @@ export interface ShowcaseProject {
 // Page payloads
 
 export interface HomePagePayload {
+  overview?: PortableTextBlock[]
+  title?: string
+}
+
+export interface WorkPagePayload {
   footer?: PortableTextBlock[]
   overview?: PortableTextBlock[]
   showcaseProjects?: ShowcaseProject[]

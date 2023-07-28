@@ -16,11 +16,11 @@ import duration from 'schemas/objects/duration'
 import milestone from 'schemas/objects/milestone'
 import timeline from 'schemas/objects/timeline'
 import home from 'schemas/singletons/home'
+import work from 'schemas/singletons/work'
 import settings from 'schemas/singletons/settings'
 
 const title =
-  process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE ||
-  'Next.js Personal Website with Sanity.io'
+  process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE || 'jixin.ooo | Sanity Studio'
 
 export const PREVIEWABLE_DOCUMENT_TYPES: string[] = [
   home.name,
@@ -38,6 +38,7 @@ export default defineConfig({
     types: [
       // Singletons
       home,
+      work,
       settings,
       // Documents
       duration,
