@@ -1,5 +1,5 @@
-import React, { useEffect, useRef } from 'react'
 import p5Types from 'p5'
+import React, { useEffect, useRef } from 'react'
 
 interface Circle {
   position: p5Types.Vector

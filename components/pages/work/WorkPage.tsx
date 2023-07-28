@@ -1,5 +1,4 @@
 import { ProjectListItem } from 'components/pages/work/ProjectListItem'
-import { Header } from 'components/shared/Header'
 import Layout from 'components/shared/Layout'
 import ScrollUp from 'components/shared/ScrollUp'
 import { resolveHref } from 'lib/sanity.links'

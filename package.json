@@ -9,6 +9,10 @@
     "start": "next start",
     "type-check": "tsc --noEmit"
   },
+  "browserslist": [
+    "defaults and supports es6-module",
+    "maintained node versions"
+  ],
   "prettier": {
     "semi": false,
     "singleQuote": true

@@ -1,6 +1,4 @@
-import { Footer } from 'components/global/Footer'
 import { HomeNavbar } from 'components/global/HomeNavbar'
-import PreviewNavbar from 'components/global/PreviewNavbar'
 import { PreviewBanner } from 'components/preview/PreviewBanner'
 import AnimeBackground from 'components/shared/AnimeBackground'
 import ScrollUp from 'components/shared/ScrollUp'

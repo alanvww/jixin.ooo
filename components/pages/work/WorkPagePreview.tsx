@@ -4,7 +4,7 @@ import type { HomePagePayload } from 'types'
 
 import { WorkPage, WorkPageProps } from './WorkPage'
 
-export default function HomePagePreview({
+export default function WorkPagePreview({
   page: initialPage,
   settings,
 }: WorkPageProps) {
