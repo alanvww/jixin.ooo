@@ -14,16 +14,16 @@ export function ProjectListItem(props: ProjectProps) {
   return (
     <div
       className={`grid h-48 gap-x-5 rounded-md border
-       text-[#ffffff]/80	antialiased  bg-blend-multiply   transition hover:ring-2 hover:ring-green-600`}
+       text-[#ffffff]/80	antialiased     hover:ring-2 hover:ring-green-600`}
       style={{
         backgroundImage: `url(${urlForImage(project.coverImage)})`,
         backgroundSize: 'cover',
       }}
     >
       <div
-        className="backdrop-overlay rounded-md	p-3  
-        mix-blend-screen			  drop-shadow-lg		backdrop-blur-sm 
-      			 backdrop-brightness-50	   transition-all
+        className=" rounded-md	p-3  
+        mix-blend-screen	drop-shadow-lg	backdrop-blur-sm	  backdrop-brightness-50		backdrop-filter 
+      			 transition-all	   
       hover:text-transparent hover:backdrop-blur-0 hover:backdrop-brightness-100
       "
       >
