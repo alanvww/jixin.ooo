@@ -13,28 +13,22 @@ interface ImageBoxProps {
 export default function ImageBox({
   image,
   alt = 'Cover image',
-  width = 3500,
-  height = 2000,
-  size = '100vw',
-  classesWrapper,
+  size = '(min-width: 808px) 50vw, 100vw',
 }: ImageBoxProps) {
-  const imageUrl =
-    image && urlForImage(image)?.height(height).width(width).fit('crop').url()
+  const imageUrl = image && urlForImage(image)?.url()
 
   return (
-    <div
-      className={`w-full overflow-hidden rounded-[3px] bg-gray-50 ${classesWrapper}`}
-    >
+    <>
       {imageUrl && (
         <Image
-          className="absolute h-full w-full"
+          className="relative h-full w-full  object-contain"
           alt={alt}
-          width={width}
-          height={height}
+          width={0}
+          height={0}
           sizes={size}
           src={imageUrl}
         />
       )}
-    </div>
+    </>
   )
 }

@@ -106,7 +106,6 @@ const AnimeBackground: React.FC = () => {
           p.resizeCanvas(p.width, p.height)
           circles = [] // Reset the circles array
           const numberOfCircles = p.windowWidth <= 768 ? 3333 : 8888
-          console.log(numberOfCircles)
           for (let i = 0; i < numberOfCircles; i++) {
             circles.push(
               Circle(p.random(p.width), p.random(p.height), p.random(1, 3))

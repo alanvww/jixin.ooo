@@ -9,7 +9,6 @@ interface ProjectProps {
 
 export function ProjectListItem(props: ProjectProps) {
   const { project, odd } = props
-  console.log(project)
   return (
     <div
       className={`grid h-48 gap-x-5 rounded-md border

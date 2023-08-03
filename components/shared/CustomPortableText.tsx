@@ -37,12 +37,8 @@ export function CustomPortableText({
         value: Image & { alt?: string; caption?: string }
       }) => {
         return (
-          <div className="my-6 space-y-2">
-            <ImageBox
-              image={value}
-              alt={value.alt}
-              classesWrapper="relative aspect-[16/9]"
-            />
+          <div className="">
+            <ImageBox image={value} alt={value.alt} classesWrapper="relative" />
             {value?.caption && (
               <div className="font-sans text-sm text-gray-600">
                 {value.caption}
