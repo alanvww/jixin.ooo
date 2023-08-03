@@ -1,5 +1,6 @@
 import 'styles/index.css'
 
+import { Analytics } from '@vercel/analytics/react'
 import { AppProps } from 'next/app'
 import { IBM_Plex_Mono, Nunito_Sans, PT_Serif } from 'next/font/google'
 import { lazy } from 'react'
@@ -46,6 +47,7 @@ export default function App({ Component, pageProps }: AppProps) {
       ) : (
         <Component {...pageProps} />
       )}
+      <Analytics />
     </>
   )
 }
