@@ -52,14 +52,7 @@ export function WorkPage({ page, settings, preview, loading }: WorkPageProps) {
               className={` text-center 
       text-[#6E6E6E]`}
             >
-              {/* Title */}
-              {title && (
-                <div className="text-3xl font-extrabold tracking-tight md:text-5xl">
-                  {title}
-                </div>
-              )}
-
-              <div className="my-3 text-xl font-bold tracking-tight md:text-2xl">
+              <div className="my-3 text-2xl font-bold tracking-tight sm:text-xl md:text-4xl">
                 <button className="mx-5" onClick={() => setSelectedYear(null)}>
                   All
                 </button>

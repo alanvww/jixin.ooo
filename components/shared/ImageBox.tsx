@@ -1,5 +1,6 @@
 import { urlForImage } from 'lib/sanity.image'
 import Image from 'next/image'
+import { useState } from 'react'
 
 interface ImageBoxProps {
   image?: { asset?: any }
@@ -30,22 +31,26 @@ export default function ImageBox({
   alt = 'Cover image',
   size = '(min-width: 808px) 50vw, 100vw',
 }: ImageBoxProps) {
+  const [loading, setLoading] = useState<boolean | null | undefined>(true)
+
   const imageUrl = image && urlForImage(image)?.quality(80).url()
 
   return (
     <div className="relative mx-2 ">
+      {loading && <p className="text-center text-3xl text-gray-500">Loading</p>}
+
       {imageUrl && (
         <Image
           className="relative h-auto w-full  object-contain"
           alt={alt}
           width={500}
-          height={500}
+          height={100}
           sizes={size}
           src={imageUrl}
           placeholder="blur"
-          //blurDataURL={rgbDataURL(110, 110, 110)}
-          blurDataURL="https://github.com/alanvww/jixin.ooo/blob/main/public/loading.gif"
+          blurDataURL={rgbDataURL(110, 110, 110)}
           priority={true}
+          onLoadingComplete={() => setLoading(false)}
         />
       )}
     </div>
