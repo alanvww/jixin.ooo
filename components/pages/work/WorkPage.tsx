@@ -52,13 +52,16 @@ export function WorkPage({ page, settings, preview, loading }: WorkPageProps) {
               className={` text-center 
       text-[#6E6E6E]`}
             >
-              <div className="my-3 text-2xl font-bold tracking-tight sm:text-xl md:text-4xl">
-                <button className="mx-5" onClick={() => setSelectedYear(null)}>
+              <div className="my-1 text-2xl font-bold tracking-tight md:my-3 md:text-4xl">
+                <button
+                  className="mx-0 w-full md:mx-5  md:w-auto"
+                  onClick={() => setSelectedYear(null)}
+                >
                   All
                 </button>
                 {years.map((year) => (
                   <button
-                    className="mx-5"
+                    className="mx-0 w-full md:mx-5  md:w-auto"
                     key={year}
                     onClick={() => setSelectedYear(year)}
                   >
