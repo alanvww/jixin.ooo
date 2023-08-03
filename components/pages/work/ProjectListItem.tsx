@@ -16,7 +16,7 @@ export function ProjectListItem(props: ProjectProps) {
       style={{
         backgroundImage: `url(${urlForImage(project.coverImage)
           ?.crop('center')
-          .width(800)
+          .width(600)
           .fit('crop')
           .quality(60)})`,
         backgroundSize: 'cover',
@@ -25,9 +25,9 @@ export function ProjectListItem(props: ProjectProps) {
     >
       <div
         className="z-1 rounded-md p-3	 
-        drop-shadow-lg	backdrop-blur-sm	backdrop-brightness-50	  backdrop-filter		 
-      			 transition-all	    
-      hover:text-transparent hover:backdrop-blur-0 hover:backdrop-brightness-100
+        	backdrop-blur-sm	backdrop-brightness-50	  backdrop-filter		 
+      			 transition ease-in-out  hover:text-transparent 
+      hover:backdrop-blur-0 hover:backdrop-brightness-100 hover:transition
       "
       >
         <div className=" z-2 md:text-md text-md my-2	font-extrabold leading-relaxed drop-shadow-md 	 	 ">
