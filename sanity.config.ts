@@ -10,14 +10,15 @@ import { pageStructure, singletonPlugin } from 'plugins/settings'
 import { defineConfig } from 'sanity'
 import { deskTool } from 'sanity/desk'
 import { unsplashImageAsset } from 'sanity-plugin-asset-source-unsplash'
+import { vercelDeployTool } from 'sanity-plugin-vercel-deploy'
 import page from 'schemas/documents/page'
 import project from 'schemas/documents/project'
 import duration from 'schemas/objects/duration'
 import milestone from 'schemas/objects/milestone'
 import timeline from 'schemas/objects/timeline'
 import home from 'schemas/singletons/home'
-import work from 'schemas/singletons/work'
 import settings from 'schemas/singletons/settings'
+import work from 'schemas/singletons/work'
 
 const title =
   process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE || 'jixin.ooo | Sanity Studio'
@@ -68,5 +69,6 @@ export default defineConfig({
     // Vision lets you query your content with GROQ in the studio
     // https://www.sanity.io/docs/the-vision-plugin
     visionTool({ defaultApiVersion: apiVersion }),
+    vercelDeployTool(),
   ],
 })
