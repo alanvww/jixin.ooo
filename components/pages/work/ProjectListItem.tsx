@@ -24,16 +24,16 @@ export function ProjectListItem(props: ProjectProps) {
       }}
     >
       <div
-        className="rounded-md p-3	mix-blend-screen  
+        className="z-1 rounded-md p-3	 
         drop-shadow-lg	backdrop-blur-sm	backdrop-brightness-50	  backdrop-filter		 
-      			 transition-all	   
+      			 transition-all	    
       hover:text-transparent hover:backdrop-blur-0 hover:backdrop-brightness-100
       "
       >
-        <div className="md:text-md text-md my-2	font-extrabold leading-relaxed drop-shadow-md 	 	 ">
+        <div className=" z-2 md:text-md text-md my-2	font-extrabold leading-relaxed drop-shadow-md 	 	 ">
           {project.year}
         </div>
-        <div className="mb-5 text-xl	font-extrabold leading-relaxed	    md:text-2xl ">
+        <div className="z-2 mb-5 text-xl	font-extrabold leading-relaxed	    md:text-2xl ">
           {project.title}
         </div>
       </div>
