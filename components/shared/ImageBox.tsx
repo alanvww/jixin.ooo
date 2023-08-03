@@ -38,12 +38,13 @@ export default function ImageBox({
         <Image
           className="relative h-auto w-full  object-contain"
           alt={alt}
-          width={1000}
-          height={1000}
+          width={500}
+          height={500}
           sizes={size}
           src={imageUrl}
           placeholder="blur"
-          blurDataURL={rgbDataURL(110, 110, 110)}
+          //blurDataURL={rgbDataURL(110, 110, 110)}
+          blurDataURL="https://github.com/alanvww/jixin.ooo/blob/main/public/loading.gif"
           priority={true}
         />
       )}
