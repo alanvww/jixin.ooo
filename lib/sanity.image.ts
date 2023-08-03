@@ -13,5 +13,5 @@ export const urlForImage = (source: any) => {
     return null
   }
 
-  return imageBuilder?.image(source).auto('format').fit('max')
+  return imageBuilder?.image(source).auto('format').fit('crop')
 }

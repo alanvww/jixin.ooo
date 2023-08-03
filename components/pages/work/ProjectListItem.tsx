@@ -12,10 +12,15 @@ export function ProjectListItem(props: ProjectProps) {
   return (
     <div
       className={`grid h-48 gap-x-5 rounded-md border
-       text-[#ffffff]/80	antialiased     hover:ring-2 hover:ring-green-600`}
+       text-[#ffffff]/80   hover:ring-2 hover:ring-green-600`}
       style={{
-        backgroundImage: `url(${urlForImage(project.coverImage)})`,
+        backgroundImage: `url(${urlForImage(project.coverImage)
+          ?.crop('center')
+          .width(800)
+          .fit('crop')
+          .quality(60)})`,
         backgroundSize: 'cover',
+        backgroundPosition: 'center',
       }}
     >
       <div
@@ -25,10 +30,10 @@ export function ProjectListItem(props: ProjectProps) {
       hover:text-transparent hover:backdrop-blur-0 hover:backdrop-brightness-100
       "
       >
-        <div className="md:text-md text-md my-2	font-extrabold leading-relaxed drop-shadow-md 	 	 filter">
+        <div className="md:text-md text-md my-2	font-extrabold leading-relaxed drop-shadow-md 	 	 ">
           {project.year}
         </div>
-        <div className="mb-5 text-xl	font-extrabold leading-relaxed	  filter  md:text-2xl ">
+        <div className="mb-5 text-xl	font-extrabold leading-relaxed	    md:text-2xl ">
           {project.title}
         </div>
       </div>

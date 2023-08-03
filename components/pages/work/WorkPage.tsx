@@ -23,7 +23,7 @@ type Project = {
 }
 
 export function WorkPage({ page, settings, preview, loading }: WorkPageProps) {
-  const { overview, showcaseProjects, title = 'Personal website' } = page ?? {}
+  const { overview, showcaseProjects, title = 'All my works' } = page ?? {}
 
   // Get unique years from the projects
   const uniqueYears = Array.from(
@@ -39,8 +39,6 @@ export function WorkPage({ page, settings, preview, loading }: WorkPageProps) {
   const filteredProjects = selectedYear
     ? showcaseProjects?.filter((project) => project.year === selectedYear)
     : showcaseProjects?.sort((a, b) => b.year - a.year)
-
-  console.log(showcaseProjects)
 
   return (
     <>
@@ -78,7 +76,7 @@ export function WorkPage({ page, settings, preview, loading }: WorkPageProps) {
             </div>
           )}
           {/* Showcase projects */}
-          {showcaseProjects && showcaseProjects.length > 0 && (
+          {filteredProjects && filteredProjects.length > 0 && (
             <div className="mx-auto grid max-w-[100rem] gap-4 rounded-md xl:grid-cols-3">
               {filteredProjects?.map((project, key) => {
                 const href = resolveHref(project._type, project.slug)
