@@ -9,10 +9,19 @@
     "start": "next start",
     "type-check": "tsc --noEmit"
   },
-  "browserslist": [
-    "defaults and supports es6-module",
-    "maintained node versions"
-  ],
+  "browserslist": {
+    "production": [
+      ">0.01%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      ">0.01%",
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
   "prettier": {
     "semi": false,
     "singleQuote": true
@@ -53,11 +62,11 @@
     "eslint": "^8.43.0",
     "eslint-config-next": "13.4.7",
     "eslint-plugin-simple-import-sort": "^10.0.0",
-    "postcss": "^8.4.24",
+    "postcss": "^8.4.27",
     "prettier": "^2.8.8",
     "prettier-plugin-packagejson": "^2.4.3",
     "prettier-plugin-tailwindcss": "^0.3.0",
-    "tailwindcss": "3.3.2",
+    "tailwindcss": "^3.3.3",
     "typescript": "^5.1.3"
   }
 }
