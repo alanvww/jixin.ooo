@@ -36,9 +36,6 @@ export function ProjectPage({
     size,
     edition,
   } = project || {}
-
-  console.log('project', project)
-
   return (
     <>
       <ProjectPageHead project={project} title={homePageTitle} />
