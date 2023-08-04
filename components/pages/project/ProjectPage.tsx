@@ -54,21 +54,27 @@ export function ProjectPage({
                 {/* Medium */}
                 {medium && medium != '' && (
                   <div className="mb-5 md:mb-10 ">
-                    <h2 className="text-2xl font-bold text-gray-800">Medium</h2>
+                    <h2 className="text-2xl font-bold text-gray-800/30">
+                      Medium
+                    </h2>
                     <p className=" max-w-3xl text-xl text-gray-600">{medium}</p>
                   </div>
                 )}
                 {/* Year */}
                 {year && year != null && (
                   <div className="mb-5 md:mb-10">
-                    <h2 className="text-2xl font-bold text-gray-800">Year</h2>
+                    <h2 className="text-2xl font-bold text-gray-800/30">
+                      Year
+                    </h2>
                     <p className=" max-w-3xl text-xl text-gray-600">{year}</p>
                   </div>
                 )}
                 {/* Size */}
                 {size && size != '' && (
                   <div className="mb-5 md:mb-10">
-                    <h2 className="text-2xl font-bold text-gray-800">Size</h2>
+                    <h2 className="text-2xl font-bold text-gray-800/30">
+                      Size
+                    </h2>
                     <p className=" max-w-3xl text-xl text-gray-600">{size}</p>
                   </div>
                 )}
@@ -78,9 +84,6 @@ export function ProjectPage({
               {/* Description */}
               {description && (
                 <div className="flex-auto">
-                  <h2 className="text-2xl font-bold text-gray-800">
-                    Description
-                  </h2>
                   <CustomPortableText
                     paragraphClasses=" max-w-3xl text-xl text-gray-600"
                     value={description}

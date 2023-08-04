@@ -7,8 +7,8 @@ interface HeaderProps {
   classWrapper?: string
 }
 export function Header(props: HeaderProps) {
-  const { title, classWrapper, description, centered = false } = props
-  if (!description && !title) {
+  const { title, classWrapper, centered = false } = props
+  if (!title) {
     return null
   }
   return (
@@ -19,7 +19,6 @@ export function Header(props: HeaderProps) {
     >
       {/* Title */}
       {title && <div className="text-3xl  md:text-5xl">{title}</div>}
-      {/* Description */}
     </div>
   )
 }
