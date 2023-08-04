@@ -26,6 +26,9 @@ export interface ShowcaseProject {
   tags?: string[]
   title?: string
   year?: number
+  medium?: string
+  size?: string
+  edition?: string
 }
 
 // Page payloads
@@ -51,7 +54,6 @@ export interface PagePayload {
 }
 
 export interface ProjectPayload {
-  client?: string
   coverImage?: Image
   description?: PortableTextBlock[]
   duration?: {
@@ -59,10 +61,13 @@ export interface ProjectPayload {
     end?: string
   }
   overview?: PortableTextBlock[]
-  site?: string
   slug: string
   tags?: string[]
   title?: string
+  year?: number
+  medium?: string
+  size?: string
+  edition?: string
 }
 
 export interface SettingsPayload {

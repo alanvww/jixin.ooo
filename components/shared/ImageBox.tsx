@@ -36,7 +36,7 @@ export default function ImageBox({
   const imageUrl = image && urlForImage(image)?.quality(80).url()
 
   return (
-    <div className="relative mx-2 md:mx-auto md:w-3/4 ">
+    <div className="relative mx-2 my-4 md:mx-auto ">
       {loading && (
         <p className="text-center text-lg text-gray-500 md:text-3xl">Loading</p>
       )}

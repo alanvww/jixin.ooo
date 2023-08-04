@@ -91,6 +91,11 @@ export default defineType({
       type: 'string',
     }),
     defineField({
+      name: 'edition',
+      title: 'Edition',
+      type: 'string',
+    }),
+    defineField({
       name: 'tags',
       title: 'Tags',
       type: 'array',

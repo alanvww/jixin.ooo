@@ -25,18 +25,19 @@ export function ProjectPage({
 }: ProjectPageProps) {
   // Default to an empty object to allow previews on non-existent documents
   const {
-    client,
     coverImage,
     description,
     duration,
     overview,
-    site,
     tags,
     title,
+    year,
+    medium,
+    size,
+    edition,
   } = project || {}
 
-  const startYear = new Date(duration?.start!).getFullYear()
-  const endYear = duration?.end ? new Date(duration?.end).getFullYear() : 'Now'
+  console.log('project', project)
 
   return (
     <>
@@ -44,17 +45,50 @@ export function ProjectPage({
 
       <Layout settings={settings} preview={preview} loading={loading}>
         <div>
-          <div className="mb-20 space-y-6">
+          <div className="mb-20 space-y-6 ">
             {/* Header */}
             <Header title={title} description={overview} />
 
-            {/* Description */}
-            {description && (
-              <CustomPortableText
-                paragraphClasses="max-w-3xl text-xl text-gray-600"
-                value={description}
-              />
-            )}
+            <div className="mb-20 flex flex-col md:flex-row-reverse  ">
+              <div className="flex-1 flex-col">
+                {/* Medium */}
+                {medium && medium != '' && (
+                  <div className="mb-5 md:mb-10 ">
+                    <h2 className="text-2xl font-bold text-gray-800">Medium</h2>
+                    <p className=" max-w-3xl text-xl text-gray-600">{medium}</p>
+                  </div>
+                )}
+                {/* Year */}
+                {year && year != null && (
+                  <div className="mb-5 md:mb-10">
+                    <h2 className="text-2xl font-bold text-gray-800">Year</h2>
+                    <p className=" max-w-3xl text-xl text-gray-600">{year}</p>
+                  </div>
+                )}
+                {/* Size */}
+                {size && size != '' && (
+                  <div className="mb-5 md:mb-10">
+                    <h2 className="text-2xl font-bold text-gray-800">Size</h2>
+                    <p className=" max-w-3xl text-xl text-gray-600">{size}</p>
+                  </div>
+                )}
+                {/* Edition */}
+              </div>
+
+              {/* Description */}
+              {description && (
+                <div className="flex-auto">
+                  <h2 className="text-2xl font-bold text-gray-800">
+                    Description
+                  </h2>
+                  <CustomPortableText
+                    paragraphClasses=" max-w-3xl text-xl text-gray-600"
+                    value={description}
+                  />
+                </div>
+              )}
+            </div>
+
             {/* Workaround: scroll to top on route change */}
             <ScrollUp />
           </div>
