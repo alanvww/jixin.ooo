@@ -76,6 +76,16 @@ export function ProjectPage({
                   </div>
                 )}
                 {/* Edition */}
+                {edition && edition != '' && (
+                  <div className="mb-5 md:mb-10">
+                    <h2 className="text-2xl font-bold text-gray-800/30">
+                      Edition
+                    </h2>
+                    <p className=" max-w-3xl text-xl text-gray-600">
+                      {edition}
+                    </p>
+                  </div>
+                )}
               </div>
 
               {/* Description */}
