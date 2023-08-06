@@ -2,9 +2,13 @@ import 'styles/index.css'
 
 import { Analytics } from '@vercel/analytics/react'
 import { AppProps } from 'next/app'
+import dynamic from 'next/dynamic'
 import { IBM_Plex_Mono, Nunito_Sans, PT_Serif } from 'next/font/google'
 import { lazy } from 'react'
 
+const AnimatedCursor = dynamic(() => import('react-animated-cursor'), {
+  ssr: false,
+})
 const mono = IBM_Plex_Mono({
   variable: '--font-mono',
   subsets: ['latin'],
@@ -39,7 +43,19 @@ export default function App({ Component, pageProps }: AppProps) {
           }
         `}
       </style>
-
+      <AnimatedCursor
+        innerSize={8}
+        outerSize={35}
+        innerScale={1}
+        outerScale={2}
+        outerAlpha={0}
+        innerStyle={{
+          backgroundColor: '#6e6e6e',
+        }}
+        outerStyle={{
+          border: '3px solid #6e6e6e',
+        }}
+      />
       {preview ? (
         <PreviewProvider token={token}>
           <Component {...pageProps} />
