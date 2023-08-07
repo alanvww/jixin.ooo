@@ -1,4 +1,4 @@
-export const useCdn = false
+export const useCdn = true
 
 /**
  * As this file is reused in several other files, try to keep it lean and small.
