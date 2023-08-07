@@ -69,6 +69,8 @@ const AnimeBackground: React.FC = () => {
           return circle
         }
 
+        p.disableFriendlyErrors = true
+
         p.setup = () => {
           p.createCanvas(p.windowWidth, p.windowHeight)
           const numberOfCircles = p.windowWidth <= 768 ? 3333 : 8888

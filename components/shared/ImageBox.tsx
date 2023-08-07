@@ -36,11 +36,11 @@ export default function ImageBox({
   const imageUrl = image && urlForImage(image)?.quality(80).url()
 
   return (
-    <div className="relative mx-2 my-4 md:mx-auto ">
-      {loading && (
-        <p className="text-center text-lg text-gray-500 md:text-3xl">Loading</p>
-      )}
-
+    <div
+      className={`${
+        loading ? 'animate-pulse' : ''
+      } relative mx-2 my-4 md:mx-auto `}
+    >
       {imageUrl && (
         <Image
           className="relative h-auto w-full  object-contain"
