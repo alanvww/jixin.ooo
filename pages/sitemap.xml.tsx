@@ -9,7 +9,7 @@ export default function SiteMap() {
 export async function getServerSideProps({ res }) {
   const client = getClient({ token: readToken })
 
-  const baseUrl = `https://jixin.ooo/work`
+  const baseUrl = `https://jixin.ooo/projects`
   const query = groq`{
       "projects": *[_type == 'project']{slug},
     }`
