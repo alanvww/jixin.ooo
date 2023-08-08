@@ -54,7 +54,7 @@ export default function App({ Component, pageProps }: AppProps) {
           backgroundColor: 'var(--cursor-color)',
         }}
         outerStyle={{
-          border: '3px solid var(--cursor-color)s',
+          border: '3px solid var(--cursor-color)',
         }}
       />
       {preview ? (
