@@ -51,33 +51,43 @@ export function ProjectPage({
                 {/* Medium */}
                 {medium && medium != '' && (
                   <div className="mb-5 md:mb-10 ">
-                    <h2 className="text-lg font-bold text-gray-800/30">
+                    <h2 className="text-lg font-bold text-gray-800/30 dark:text-gray-400/50">
                       Medium
                     </h2>
-                    <p className=" max-w-3xl text-xl text-gray-600">{medium}</p>
+                    <p className=" max-w-3xl text-xl text-gray-600 dark:text-white ">
+                      {medium}
+                    </p>
                   </div>
                 )}
                 {/* Year */}
                 {year && year != null && (
                   <div className="mb-5 md:mb-10">
-                    <h2 className="text-lg font-bold text-gray-800/30">Year</h2>
-                    <p className=" max-w-3xl text-xl text-gray-600">{year}</p>
+                    <h2 className="text-lg font-bold text-gray-800/30 dark:text-gray-400/50">
+                      Year
+                    </h2>
+                    <p className=" max-w-3xl text-xl text-gray-600 dark:text-white">
+                      {year}
+                    </p>
                   </div>
                 )}
                 {/* Size */}
                 {size && size != '' && (
                   <div className="mb-5 md:mb-10">
-                    <h2 className="text-lg font-bold text-gray-800/30">Size</h2>
-                    <p className=" max-w-3xl text-xl text-gray-600">{size}</p>
+                    <h2 className="text-lg font-bold text-gray-800/30 dark:text-gray-400/50">
+                      Size
+                    </h2>
+                    <p className=" max-w-3xl text-xl text-gray-600 dark:text-white">
+                      {size}
+                    </p>
                   </div>
                 )}
                 {/* Edition */}
                 {edition && edition != '' && (
                   <div className="mb-5 md:mb-10">
-                    <h2 className="text-lg font-bold text-gray-800/30">
+                    <h2 className="text-lg font-bold text-gray-800/30 dark:text-gray-400/50">
                       Edition
                     </h2>
-                    <p className=" max-w-3xl text-xl text-gray-600">
+                    <p className=" max-w-3xl text-xl text-gray-600 dark:text-white">
                       {edition}
                     </p>
                   </div>

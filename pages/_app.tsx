@@ -4,6 +4,7 @@ import { Analytics } from '@vercel/analytics/react'
 import { AppProps } from 'next/app'
 import dynamic from 'next/dynamic'
 import { IBM_Plex_Mono, Nunito_Sans, PT_Serif } from 'next/font/google'
+import { ThemeProvider } from 'next-themes'
 import { lazy } from 'react'
 
 const AnimatedCursor = dynamic(() => import('react-animated-cursor'), {
@@ -33,7 +34,7 @@ const PreviewProvider = lazy(() => import('components/preview/PreviewProvider'))
 export default function App({ Component, pageProps }: AppProps) {
   const { preview, token } = pageProps
   return (
-    <>
+    <ThemeProvider attribute="class">
       <style jsx global>
         {`
           :root {
@@ -50,10 +51,10 @@ export default function App({ Component, pageProps }: AppProps) {
         outerScale={2}
         outerAlpha={0}
         innerStyle={{
-          backgroundColor: '#6e6e6e',
+          backgroundColor: 'var(--cursor-color)',
         }}
         outerStyle={{
-          border: '3px solid #6e6e6e',
+          border: '3px solid var(--cursor-color)s',
         }}
       />
       {preview ? (
@@ -64,6 +65,6 @@ export default function App({ Component, pageProps }: AppProps) {
         <Component {...pageProps} />
       )}
       <Analytics />
-    </>
+    </ThemeProvider>
   )
 }

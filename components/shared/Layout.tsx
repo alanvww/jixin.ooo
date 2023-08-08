@@ -2,7 +2,6 @@ import { Footer } from 'components/global/Footer'
 import { Navbar } from 'components/global/Navbar'
 import PreviewNavbar from 'components/global/PreviewNavbar'
 import { PreviewBanner } from 'components/preview/PreviewBanner'
-import IntroTemplate from 'intro-template'
 import { SettingsPayload } from 'types'
 
 const fallbackSettings: SettingsPayload = {
@@ -24,7 +23,9 @@ export default function Layout({
   loading,
 }: LayoutProps) {
   return (
-    <div className={`flex min-h-screen flex-col bg-white text-black`}>
+    <div
+      className={`flex min-h-screen flex-col bg-white text-black dark:bg-black`}
+    >
       {preview && <PreviewBanner loading={loading} />}
       {preview ? (
         <PreviewNavbar settings={settings} />

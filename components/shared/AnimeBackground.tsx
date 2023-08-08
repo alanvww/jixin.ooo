@@ -16,7 +16,7 @@ interface Circle {
   ) => void
 }
 
-const AnimeBackground: React.FC = () => {
+export default function AnimeBackground({ theme = 'light' }) {
   const sketchRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -29,18 +29,28 @@ const AnimeBackground: React.FC = () => {
       const dodgeAcceleration = 2.0
 
       new p5((p: p5Types) => {
+        p.disableFriendlyErrors = true
+
         const Circle = (x: number, y: number, speed: number): Circle => {
           const circle: Circle = {
             position: p.createVector(x, y),
             velocity: p5.Vector.random2D().mult(speed),
             lastDodgeFrame: -dodgeCooldown,
-            colorFill: Math.round(Math.random()) ? 190 : 130,
+            colorFill: Math.round(Math.random())
+              ? theme === 'light'
+                ? 190
+                : 200
+              : theme === 'light'
+              ? 130
+              : 180,
 
             update: function () {
               this.velocity.mult(friction)
               this.position.add(this.velocity)
-              this.position.x = (this.position.x + p.width) % p.width
-              this.position.y = (this.position.y + p.height) % p.height
+              this.position.x =
+                (this.position.x + p.windowWidth) % p.windowWidth
+              this.position.y =
+                (this.position.y + p.windowHeight) % p.windowHeight
             },
 
             draw: function () {
@@ -70,47 +80,40 @@ const AnimeBackground: React.FC = () => {
         }
 
         p.setup = () => {
-          p.disableFriendlyErrors = true
           p.createCanvas(p.windowWidth, p.windowHeight)
           p.frameRate(60)
-          const numberOfCircles = p.windowWidth <= 768 ? 3333 : 8888
+          const numberOfCircles = p.windowWidth <= 768 ? 2222 : 6666
           for (let i = 0; i < numberOfCircles; i++) {
             circles.push(
-              Circle(p.random(p.width), p.random(p.height), p.random(1, 3))
+              Circle(
+                p.random(p.windowWidth),
+                p.random(p.windowHeight),
+                p.random(1, 3)
+              )
             )
           }
         }
 
         p.draw = () => {
-          p.background(255)
+          p.background(theme === 'light' ? 255 : 0)
           for (let circle of circles) {
             circle.update()
             circle.draw()
             circle.dodgeMouse(p.mouseX, p.mouseY, mouseRadius, dodgeCooldown)
           }
-          drawMouseCircle(p, p.mouseX, p.mouseY, mouseRadius)
-        }
-
-        const drawMouseCircle = (
-          p: p5Types,
-          x: number,
-          y: number,
-          radius: number
-        ) => {
-          p.fill(0, 0, 0, 0)
-          p.noStroke()
-          p.ellipse(x, y, radius * 2)
         }
 
         p.windowResized = () => {
-          p.width = p.windowWidth
-          p.height = p.windowHeight
-          p.resizeCanvas(p.width, p.height)
           circles = [] // Reset the circles array
-          const numberOfCircles = p.windowWidth <= 768 ? 3333 : 8888
+          p.resizeCanvas(p.windowWidth, p.windowHeight)
+          const numberOfCircles = p.windowWidth <= 768 ? 2222 : 6666
           for (let i = 0; i < numberOfCircles; i++) {
             circles.push(
-              Circle(p.random(p.width), p.random(p.height), p.random(1, 3))
+              Circle(
+                p.random(p.windowWidth),
+                p.random(p.windowHeight),
+                p.random(1, 3)
+              )
             )
           }
         }
@@ -119,9 +122,7 @@ const AnimeBackground: React.FC = () => {
         console.log('unmounting...')
       }
     }
-  }, [])
+  }, [theme])
 
   return <div ref={sketchRef} className="fixed" />
 }
-
-export default AnimeBackground

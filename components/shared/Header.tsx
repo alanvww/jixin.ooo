@@ -13,7 +13,7 @@ export function Header(props: HeaderProps) {
   }
   return (
     <div
-      className={`text-[#6E6E6E] ${classWrapper}  ${
+      className={`text-[#6E6E6E]  dark:text-white ${classWrapper}  ${
         centered ? 'text-center ' : 'w-5/6 lg:w-3/5'
       }`}
     >

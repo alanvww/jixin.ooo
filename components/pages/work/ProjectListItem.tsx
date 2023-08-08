@@ -11,8 +11,8 @@ export function ProjectListItem(props: ProjectProps) {
   const { project, odd } = props
   return (
     <div
-      className={`z-0 grid h-48 gap-x-5 rounded-md border
-       text-[#ffffff]/80   hover:ring-2 hover:ring-green-600`}
+      className={`z-0 grid h-48 gap-x-5 rounded-md border text-[#ffffff]/80
+       hover:ring-2   hover:ring-green-600 dark:border-[#6E6E6E]`}
       style={{
         backgroundImage: `url(${urlForImage(project.coverImage)
           ?.crop('center')

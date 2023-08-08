@@ -18,7 +18,7 @@ export function HomeNavbar({ menuItems }: NavbarProps) {
           return (
             <Link
               key={key}
-              className={`w-full  text-center text-xl text-[#6E6E6E] hover:text-black   md:w-1/3 md:text-3xl ${
+              className={`w-full text-center  text-xl text-[#6E6E6E] hover:text-black dark:text-white dark:hover:text-[#6E6E6E]   md:w-1/3 md:text-3xl ${
                 menuItem?._type === 'home' ? 'font-extrabold ' : ''
               }`}
               href={href}

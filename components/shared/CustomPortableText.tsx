@@ -21,7 +21,8 @@ export function CustomPortableText({
       link: ({ children, value }) => {
         return (
           <a
-            className="underline transition hover:opacity-50"
+            className="className={` text-[#6E6E6E] underline transition 
+            hover:text-black  hover:opacity-50 dark:text-white  dark:hover:text-[#6E6E6E] "
             href={value?.href}
             rel="noreferrer noopener"
           >
