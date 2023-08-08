@@ -73,6 +73,7 @@ const AnimeBackground: React.FC = () => {
 
         p.setup = () => {
           p.createCanvas(p.windowWidth, p.windowHeight)
+          p.frameRate(60)
           const numberOfCircles = p.windowWidth <= 768 ? 3333 : 8888
           for (let i = 0; i < numberOfCircles; i++) {
             circles.push(
@@ -115,10 +116,13 @@ const AnimeBackground: React.FC = () => {
           }
         }
       }, sketchRef.current!)
+      return () => {
+        console.log('unmounting...')
+      }
     }
   }, [])
 
-  return <div ref={sketchRef} className="sticky" />
+  return <div ref={sketchRef} className="fixed" />
 }
 
 export default AnimeBackground
