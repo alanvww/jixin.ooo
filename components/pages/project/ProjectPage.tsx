@@ -4,6 +4,7 @@ import ImageBox from 'components/shared/ImageBox'
 import ScrollUp from 'components/shared/ScrollUp'
 import Link from 'next/link'
 import type { ProjectPayload, SettingsPayload } from 'types'
+import { Suspense } from 'react'
 
 import Layout from '../../shared/Layout'
 import ProjectPageHead from './ProjectPageHead'
@@ -41,75 +42,76 @@ export function ProjectPage({
       <ProjectPageHead project={project} title={homePageTitle} />
 
       <Layout settings={settings} preview={preview} loading={loading}>
-        <div>
-          <div className="mb-20 space-y-6 ">
-            {/* Header */}
-            <Header title={title} description={overview} />
+        <Suspense fallback={<p>Loading project details...</p>}>
+          <div>
+            <div className="mb-20 space-y-6 ">
+              {/* Header */}
+              <Header title={title} description={overview} />
 
-            <div className="mb-20 flex flex-col md:flex-row-reverse  ">
-              <div className="flex-1 flex-col">
-                {/* Medium */}
-                {medium && medium != '' && (
-                  <div className="mb-5 md:mb-10 ">
-                    <h2 className="text-lg font-bold text-gray-800/30 dark:text-gray-400/50">
-                      Medium
-                    </h2>
-                    <p className=" max-w-3xl text-xl text-gray-600 dark:text-white ">
-                      {medium}
-                    </p>
-                  </div>
-                )}
-                {/* Year */}
-                {year && year != null && (
-                  <div className="mb-5 md:mb-10">
-                    <h2 className="text-lg font-bold text-gray-800/30 dark:text-gray-400/50">
-                      Year
-                    </h2>
-                    <p className=" max-w-3xl text-xl text-gray-600 dark:text-white">
-                      {year}
-                    </p>
-                  </div>
-                )}
-                {/* Size */}
-                {size && size != '' && (
-                  <div className="mb-5 md:mb-10">
-                    <h2 className="text-lg font-bold text-gray-800/30 dark:text-gray-400/50">
-                      Size
-                    </h2>
-                    <p className=" max-w-3xl text-xl text-gray-600 dark:text-white">
-                      {size}
-                    </p>
-                  </div>
-                )}
-                {/* Edition */}
-                {edition && edition != '' && (
-                  <div className="mb-5 md:mb-10">
-                    <h2 className="text-lg font-bold text-gray-800/30 dark:text-gray-400/50">
-                      Edition
-                    </h2>
-                    <p className=" max-w-3xl text-xl text-gray-600 dark:text-white">
-                      {edition}
-                    </p>
+              <div className="mb-20 flex flex-col md:flex-row-reverse  ">
+                <div className="flex-1 flex-col">
+                  {/* Medium */}
+                  {medium && medium != '' && (
+                    <div className="mb-5 md:mb-10 ">
+                      <h2 className="text-lg font-bold text-gray-800/30 dark:text-gray-400/50">
+                        Medium
+                      </h2>
+                      <p className=" max-w-3xl text-xl text-gray-600 dark:text-white ">
+                        {medium}
+                      </p>
+                    </div>
+                  )}
+                  {/* Year */}
+                  {year && year != null && (
+                    <div className="mb-5 md:mb-10">
+                      <h2 className="text-lg font-bold text-gray-800/30 dark:text-gray-400/50">
+                        Year
+                      </h2>
+                      <p className=" max-w-3xl text-xl text-gray-600 dark:text-white">
+                        {year}
+                      </p>
+                    </div>
+                  )}
+                  {/* Size */}
+                  {size && size != '' && (
+                    <div className="mb-5 md:mb-10">
+                      <h2 className="text-lg font-bold text-gray-800/30 dark:text-gray-400/50">
+                        Size
+                      </h2>
+                      <p className=" max-w-3xl text-xl text-gray-600 dark:text-white">
+                        {size}
+                      </p>
+                    </div>
+                  )}
+                  {/* Edition */}
+                  {edition && edition != '' && (
+                    <div className="mb-5 md:mb-10">
+                      <h2 className="text-lg font-bold text-gray-800/30 dark:text-gray-400/50">
+                        Edition
+                      </h2>
+                      <p className=" max-w-3xl text-xl text-gray-600 dark:text-white">
+                        {edition}
+                      </p>
+                    </div>
+                  )}
+                </div>
+
+                {/* Description */}
+                {description && (
+                  <div className="flex-auto">
+                    <CustomPortableText
+                      paragraphClasses=" max-w-3xl text-xl text-gray-600"
+                      value={description}
+                    />
                   </div>
                 )}
               </div>
 
-              {/* Description */}
-              {description && (
-                <div className="flex-auto">
-                  <CustomPortableText
-                    paragraphClasses=" max-w-3xl text-xl text-gray-600"
-                    value={description}
-                  />
-                </div>
-              )}
+              {/* Workaround: scroll to top on route change */}
+              <ScrollUp />
             </div>
-
-            {/* Workaround: scroll to top on route change */}
-            <ScrollUp />
           </div>
-          <div className="absolute left-0 w-screen border-t" />
-        </div>
+        </Suspense>
       </Layout>
     </>
   )

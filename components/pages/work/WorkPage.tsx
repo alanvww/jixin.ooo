@@ -4,6 +4,7 @@ import ScrollUp from 'components/shared/ScrollUp'
 import { resolveHref } from 'lib/sanity.links'
 import Link from 'next/link'
 import { useState } from 'react'
+import { Suspense } from 'react'
 import type { WorkPagePayload } from 'types'
 import { SettingsPayload } from 'types'
 
@@ -68,22 +69,25 @@ export function WorkPage({ page, settings, preview, loading }: WorkPageProps) {
               </div>
             </div>
           )}
-          {/* Showcase projects */}
-          {filteredProjects && filteredProjects.length > 0 && (
-            <div className="mx-auto grid max-w-[100rem] gap-4 rounded-md xl:grid-cols-3">
-              {filteredProjects?.map((project, key) => {
-                const href = resolveHref(project._type, project.slug)
-                if (!href) {
-                  return null
-                }
-                return (
-                  <Link key={key} href={href}>
-                    <ProjectListItem project={project} odd={key % 2} />
-                  </Link>
-                )
-              })}
-            </div>
-          )}
+
+          <Suspense fallback={<p>Loading projects...</p>}>
+            {/* Showcase projects */}
+            {filteredProjects && filteredProjects.length > 0 && (
+              <div className="mx-auto grid max-w-[100rem] gap-4 rounded-md xl:grid-cols-3">
+                {filteredProjects?.map((project, key) => {
+                  const href = resolveHref(project._type, project.slug)
+                  if (!href) {
+                    return null
+                  }
+                  return (
+                    <Link key={key} href={href}>
+                      <ProjectListItem project={project} odd={key % 2} />
+                    </Link>
+                  )
+                })}
+              </div>
+            )}
+          </Suspense>
 
           {/* Workaround: scroll to top on route change */}
           <ScrollUp />

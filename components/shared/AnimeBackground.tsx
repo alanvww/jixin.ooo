@@ -1,5 +1,6 @@
 import p5Types from 'p5'
 import React, { useEffect, useRef } from 'react'
+import { Suspense } from 'react'
 
 interface Circle {
   position: p5Types.Vector
