@@ -55,9 +55,8 @@ export default function AnimeBackground({ theme = 'light' }) {
             },
 
             draw: function () {
-              p.fill(this.colorFill)
-              p.noStroke()
-              p.ellipse(this.position.x, this.position.y, 3)
+              p.stroke(this.colorFill)
+              p.point(this.position.x, this.position.y)
             },
 
             dodgeMouse: function (
@@ -81,8 +80,10 @@ export default function AnimeBackground({ theme = 'light' }) {
         }
 
         p.setup = () => {
+          p.pixelDensity(1)
           p.createCanvas(p.windowWidth, p.windowHeight)
           p.frameRate(60)
+          p.strokeWeight(3)
           const numberOfCircles = p.windowWidth <= 768 ? 2222 : 6666
           for (let i = 0; i < numberOfCircles; i++) {
             circles.push(
