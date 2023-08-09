@@ -25,8 +25,8 @@ export default function AnimeBackground({ theme = 'light' }) {
       let circles: Circle[] = []
       const mouseRadius = 50
       const dodgeCooldown = 60 // 60 frames, or about 1 second at 60 fps
-      const friction = 0.99
-      const dodgeAcceleration = 2.0
+      const friction = 0.995
+      const dodgeAcceleration = 3.0
 
       const sketch = (p: p5Types) => {
         p.disableFriendlyErrors = true
@@ -81,8 +81,8 @@ export default function AnimeBackground({ theme = 'light' }) {
 
         p.setup = () => {
           p.pixelDensity(1)
-          p.createCanvas(p.windowWidth, p.windowHeight)
-          p.frameRate(60)
+          p.createCanvas(p.windowWidth, p.windowHeight, p.WEBGL)
+          p.translate(-p.width / 2, -p.height / 2)
           p.strokeWeight(3)
           const numberOfCircles = p.windowWidth <= 768 ? 2222 : 6666
           for (let i = 0; i < numberOfCircles; i++) {
@@ -97,6 +97,8 @@ export default function AnimeBackground({ theme = 'light' }) {
         }
 
         p.draw = () => {
+          p.translate(-p.windowWidth / 2, -p.windowHeight / 2, 0) //moves our drawing origin to the top left corner
+
           p.background(theme === 'light' ? 255 : 0)
           for (let circle of circles) {
             circle.update()
