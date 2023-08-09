@@ -1,6 +1,5 @@
 import p5Types from 'p5'
-import React, { useEffect, useRef } from 'react'
-import { Suspense } from 'react'
+import React, { useEffect, useMemo, useRef } from 'react'
 
 interface Circle {
   position: p5Types.Vector
@@ -29,7 +28,7 @@ export default function AnimeBackground({ theme = 'light' }) {
       const friction = 0.99
       const dodgeAcceleration = 2.0
 
-      new p5((p: p5Types) => {
+      const sketch = (p: p5Types) => {
         p.disableFriendlyErrors = true
 
         const Circle = (x: number, y: number, speed: number): Circle => {
@@ -118,9 +117,12 @@ export default function AnimeBackground({ theme = 'light' }) {
             )
           }
         }
-      }, sketchRef.current!)
+      }
+      const p5Instance = new p5(sketch, sketchRef.current!)
+
+      // Cleanup
       return () => {
-        console.log('unmounting...')
+        p5Instance.remove()
       }
     }
   }, [theme])
