@@ -36,13 +36,14 @@ export default function AnimeBackground({ theme = 'light' }) {
             position: p.createVector(x, y),
             velocity: p5.Vector.random2D().mult(speed),
             lastDodgeFrame: -dodgeCooldown,
-            colorFill: Math.round(Math.random())
-              ? theme === 'light'
+            colorFill:
+              Math.random() < 0.5
+                ? theme === 'light'
+                  ? 130
+                  : 180
+                : theme === 'light'
                 ? 190
-                : 200
-              : theme === 'light'
-              ? 130
-              : 180,
+                : 200,
 
             update: function () {
               this.velocity.mult(friction)
