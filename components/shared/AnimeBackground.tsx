@@ -55,8 +55,8 @@ export default function AnimeBackground({ theme = 'light' }) {
             },
 
             draw: function () {
-              p.stroke(this.colorFill)
-              p.point(this.position.x, this.position.y)
+              buffer.stroke(this.colorFill)
+              buffer.point(this.position.x, this.position.y)
             },
 
             dodgeMouse: function (
@@ -78,18 +78,18 @@ export default function AnimeBackground({ theme = 'light' }) {
           }
           return circle
         }
-
+        let buffer: p5Types.Graphics
         p.setup = () => {
           p.pixelDensity(1)
-          p.createCanvas(p.windowWidth, p.windowHeight, p.WEBGL)
-          p.translate(-p.width / 2, -p.height / 2)
-          p.strokeWeight(3)
+          p.createCanvas(p.windowWidth, p.windowHeight)
+          buffer = p.createGraphics(p.windowWidth, p.windowHeight)
+          buffer.strokeWeight(3)
           const numberOfCircles = p.windowWidth <= 768 ? 2222 : 6666
           for (let i = 0; i < numberOfCircles; i++) {
             circles.push(
               Circle(
-                p.random(p.windowWidth),
-                p.random(p.windowHeight),
+                Math.random() * p.windowWidth,
+                Math.random() * p.windowHeight,
                 p.random(1, 3)
               )
             )
@@ -97,14 +97,15 @@ export default function AnimeBackground({ theme = 'light' }) {
         }
 
         p.draw = () => {
-          p.translate(-p.windowWidth / 2, -p.windowHeight / 2, 0) //moves our drawing origin to the top left corner
+          //p.translate(-p.windowWidth / 2, -p.windowHeight / 2, 0) //moves our drawing origin to the top left corner
 
-          p.background(theme === 'light' ? 255 : 0)
+          buffer.background(theme === 'light' ? 255 : 0)
           for (let circle of circles) {
             circle.update()
             circle.draw()
             circle.dodgeMouse(p.mouseX, p.mouseY, mouseRadius, dodgeCooldown)
           }
+          p.image(buffer, 0, 0, p.windowWidth, p.windowHeight)
         }
 
         p.windowResized = () => {
