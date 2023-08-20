@@ -21,14 +21,16 @@ export interface MilestoneItem {
 export interface ShowcaseProject {
   _type: string
   coverImage?: Image
-  overview?: PortableTextBlock[]
+  //overview?: PortableTextBlock[]
   slug?: string
-  tags?: string[]
+  //tags?: string[]
   title?: string
   year?: number
-  medium?: string
-  size?: string
-  edition?: string
+  //medium?: string
+  //size?: string
+  //edition?: string
+  //collaboration?: string
+  //url?: URL
 }
 
 // Page payloads
@@ -68,6 +70,8 @@ export interface ProjectPayload {
   medium?: string
   size?: string
   edition?: string
+  collaboration?: string
+  url?: URL
 }
 
 export interface SettingsPayload {

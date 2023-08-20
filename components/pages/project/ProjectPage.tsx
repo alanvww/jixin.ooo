@@ -1,10 +1,9 @@
 import { CustomPortableText } from 'components/shared/CustomPortableText'
 import { Header } from 'components/shared/Header'
-import ImageBox from 'components/shared/ImageBox'
 import ScrollUp from 'components/shared/ScrollUp'
 import Link from 'next/link'
-import type { ProjectPayload, SettingsPayload } from 'types'
 import { Suspense } from 'react'
+import type { ProjectPayload, SettingsPayload } from 'types'
 
 import Layout from '../../shared/Layout'
 import ProjectPageHead from './ProjectPageHead'
@@ -36,6 +35,8 @@ export function ProjectPage({
     medium,
     size,
     edition,
+    collaboration,
+    url,
   } = project || {}
   return (
     <>
@@ -91,6 +92,30 @@ export function ProjectPage({
                       </h2>
                       <p className=" max-w-3xl text-xl text-gray-600 dark:text-white">
                         {edition}
+                      </p>
+                    </div>
+                  )}
+                  {/* collaboration */}
+                  {collaboration && collaboration != '' && (
+                    <div className="mb-5 md:mb-10">
+                      <h2 className="text-lg font-bold text-gray-800/30 dark:text-gray-400/50">
+                        Collaboration
+                      </h2>
+                      <p className=" max-w-3xl text-xl text-gray-600 dark:text-white">
+                        {collaboration}
+                      </p>
+                    </div>
+                  )}
+                  {/* URL */}
+                  {url && url.toString() != '' && (
+                    <div className="mb-5 md:mb-10">
+                      <h2 className="text-lg font-bold text-gray-800/30 dark:text-gray-400/50">
+                        URL
+                      </h2>
+                      <p className=" max-w-3xl text-xl text-gray-600 dark:text-white">
+                        <Link href={url} target="_blank">
+                          {url.toString()}
+                        </Link>
                       </p>
                     </div>
                   )}

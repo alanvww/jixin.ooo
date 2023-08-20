@@ -96,6 +96,16 @@ export default defineType({
       type: 'string',
     }),
     defineField({
+      name: 'collaboration',
+      title: 'Collaboration',
+      type: 'string',
+    }),
+    defineField({
+      name: 'url',
+      title: 'URL',
+      type: 'url',
+    }),
+    defineField({
       name: 'tags',
       title: 'Tags',
       type: 'array',

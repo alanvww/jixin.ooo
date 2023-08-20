@@ -57,6 +57,8 @@ export const projectBySlugQuery = groq`
     medium,
     size,
     edition,
+    collaboration,
+    url
   }
 `
 
