@@ -8,7 +8,7 @@ const ThemeSwitch = () => {
   // useEffect only runs on the client, so now we can safely show the UI
   useEffect(() => {
     setMounted(true)
-  }, [])
+  }, [mounted])
 
   if (!mounted) {
     return null
@@ -20,8 +20,8 @@ const ThemeSwitch = () => {
         <input
           type="checkbox"
           value={theme}
-          checked={theme === 'dark'}
-          onChange={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+          checked={theme === 'light' ? undefined : true}
+          onChange={(e) => setTheme(theme === 'light' ? 'dark' : 'light')}
         ></input>
         <div className="slider">
           <div className="circle"></div>
