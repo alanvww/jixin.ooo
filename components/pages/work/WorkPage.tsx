@@ -1,6 +1,5 @@
 import { ProjectListItem } from 'components/pages/work/ProjectListItem'
 import Layout from 'components/shared/Layout'
-import ScrollUp from 'components/shared/ScrollUp'
 import { resolveHref } from 'lib/sanity.links'
 import Link from 'next/link'
 import { useState } from 'react'
@@ -90,7 +89,6 @@ export function WorkPage({ page, settings, preview, loading }: WorkPageProps) {
           </Suspense>
 
           {/* Workaround: scroll to top on route change */}
-          <ScrollUp />
         </div>
       </Layout>
     </>

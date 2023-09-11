@@ -1,7 +1,6 @@
 import { HomeNavbar } from 'components/global/HomeNavbar'
 import { PreviewBanner } from 'components/preview/PreviewBanner'
 import AnimeBackground from 'components/shared/AnimeBackground'
-import ScrollUp from 'components/shared/ScrollUp'
 import { useTheme } from 'next-themes'
 import * as React from 'react'
 import type { HomePagePayload } from 'types'
@@ -29,7 +28,6 @@ export function HomePage({ page, settings, preview, loading }: HomePageProps) {
       <React.Suspense fallback={<p>Loading...</p>}>
         <AnimeBackground theme={theme} />
       </React.Suspense>
-      <ScrollUp />
     </>
   )
 }
