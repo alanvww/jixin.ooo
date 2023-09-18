@@ -104,27 +104,30 @@ export function WorkPage({ page, settings, preview, loading }: WorkPageProps) {
       <Layout settings={settings} preview={preview} loading={loading}>
         <div className="space-y-20">
           {/* Header */}
-         
+
           <div className={` text-center  text-[#6E6E6E]`}>
-          <button
-          className={' p- my-1 text-2xl font-normal tracking-tight  md:my-3 md:text-4xl mx-0 text-[#6E6E6E] hover:text-black dark:text-white dark:hover:text-[#6E6E6E]  md:mx-5  md:w-auto'}
-          onClick={() => {
-            setIsYearExpanded(!isYearExpanded);
-          }}
-        >
-          <a>By Year</a>
-          
-        </button>
-       <span className=' p-2  dark:text-white my-1 text-2xl font-normal tracking-tight  md:my-3 md:text-4xl'>|</span>
-        <button
-          className={'mx-0 text-[#6E6E6E] hover:text-black dark:text-white dark:hover:text-[#6E6E6E]  md:mx-5  md:w-auto p-2 my-1 text-2xl font-normal tracking-tight  md:my-3 md:text-4xl'}
-          onClick={() => {
-            setIsCateExpanded(!isCateExpanded);
-          }}
-        >
-          <a>By Work Type</a>
-        </button>
-           {isYearExpanded ?  <ul role="list" className=" transition-all ease-out delay-150 duration-500	 md:flex place-content-center  my-1 text-2xl font-normal tracking-tight  md:my-3 md:text-3xl">
+            {/* All buttons */}
+            <div className='grid grid-cols-2 '>
+            <button
+              className={'mx-auto text-[#6E6E6E] hover:text-black dark:text-white dark:hover:text-[#6E6E6E]  md:mx-5  md:w-auto p-2 my-1 text-2xl font-normal tracking-tight  md:my-3 md:text-2xl'}
+              onClick={() => {
+                setIsYearExpanded(!isYearExpanded);
+              }}
+            >
+              <a>By Year</a>
+
+            </button>
+            <button
+              className={'mx-auto text-[#6E6E6E] hover:text-black dark:text-white dark:hover:text-[#6E6E6E]  md:mx-5  md:w-auto p-2 my-1 text-2xl font-normal tracking-tight  md:my-3 md:text-2xl'}
+              onClick={() => {
+                setIsCateExpanded(!isCateExpanded);
+              }}
+            >
+              <a>By Work Type</a>
+            </button>
+            </div>
+            
+            {isYearExpanded ? <ul role="list" className=" transition-all ease-out delay-150 duration-500	 md:flex place-content-center  my-1 text-2xl font-normal tracking-tight  md:my-3 md:text-2xl">
               <li
                 className="mx-0 w-full text-[#6E6E6E] hover:text-black dark:text-white dark:hover:text-[#6E6E6E]  md:mx-5  md:w-auto"
                 onClick={() => setSelectedYear(null)}
@@ -140,10 +143,10 @@ export function WorkPage({ page, settings, preview, loading }: WorkPageProps) {
                   {year}
                 </li>
               ))}
-            </ul>: null}
+            </ul> : null}
 
-     {isYearExpanded && isCateExpanded ? <div className='my-5 border-b-2 border-[#6E6E6E] dark:border-white'></div> : null}
-        {isCateExpanded ?  <ul role="list" className=" transition-all ease-out duration-500 delay-150 md:flex place-content-center my-1 text-2xl font-normal tracking-tight  md:my-3 md:text-3xl">
+            {isYearExpanded && isCateExpanded ? <div className='my-5 border-b-2 border-[#6E6E6E] dark:border-white'></div> : null}
+            {isCateExpanded ? <ul role="list" className=" transition-all ease-out duration-500 delay-150 md:flex place-content-center my-1 text-2xl font-normal tracking-tight  md:my-3 md:text-2xl">
               <li
                 className="mx-0 w-full text-[#6E6E6E] hover:text-black dark:text-white dark:hover:text-[#6E6E6E]  md:mx-5  md:w-auto"
                 onClick={() => setSelectedCategory(null)}
@@ -154,12 +157,12 @@ export function WorkPage({ page, settings, preview, loading }: WorkPageProps) {
                 <li
                   className={"mx-0 w-full text-[#6E6E6E] hover:text-black dark:text-white dark:hover:text-[#6E6E6E]  md:mx-5  md:w-auto"}
                   key={cate}
-                  onClick={() => setSelectedCategory(filters[1].options.filter((project)=> project.title === cate)[0].value.toString())}
+                  onClick={() => setSelectedCategory(filters[1].options.filter((project) => project.title === cate)[0].value.toString())}
                 >
                   {cate}
                 </li>
               ))}
-            </ul>: null }
+            </ul> : null}
           </div>
 
           <Suspense fallback={<p>Loading projects...</p>}>
