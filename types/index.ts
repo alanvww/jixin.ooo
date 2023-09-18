@@ -23,7 +23,7 @@ export interface ShowcaseProject {
   coverImage?: Image
   //overview?: PortableTextBlock[]
   slug?: string
-  //tags?: string[]
+  tags?: string[]
   title?: string
   year?: number
   //medium?: string

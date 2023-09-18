@@ -20,7 +20,6 @@ export const workPageQuery = groq`
     showcaseProjects[]->{
       _type,
       coverImage,
-      overview,
       "slug": slug.current,
       tags,
       title,
@@ -58,7 +57,7 @@ export const projectBySlugQuery = groq`
     size,
     edition,
     collaboration,
-    url
+    url,
   }
 `
 

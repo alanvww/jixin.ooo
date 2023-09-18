@@ -20,5 +20,10 @@ module.exports = {
       serif: 'var(--font-serif)',
     },
   },
-  plugins: ['tailwindcss', '@tailwindcss/typography', 'autoprefixer'],
+  plugins: [
+    'tailwindcss',
+    '@tailwindcss/typography',
+    'autoprefixer',
+    require('@tailwindcss/forms'),
+  ],
 }

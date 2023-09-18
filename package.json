@@ -24,6 +24,7 @@
     "@sanity/demo": "1.0.2",
     "@sanity/image-url": "1.0.2",
     "@sanity/vision": "3.14.0",
+    "@tailwindcss/forms": "^0.5.6",
     "@tailwindcss/typography": "0.5.9",
     "@types/three": "^0.154.0",
     "@vercel/analytics": "^1.0.1",

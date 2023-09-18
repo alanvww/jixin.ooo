@@ -9,6 +9,12 @@ interface ProjectProps {
 
 export function ProjectListItem(props: ProjectProps) {
   const { project, odd } = props
+  const worktype = [
+  { title: 'Drawing & Painting', value: 'drawing-painting' },
+  { title: 'Experience', value: 'experiences' },
+  { title: 'Installation', value: 'installations' },
+  { title: 'Performance', value: 'performances' },
+  { title: 'Print', value: 'prints' }]
   return (
     <div
       className={`z-0 grid h-48 gap-x-5 rounded-md border text-[#ffffff]/80
@@ -30,8 +36,8 @@ export function ProjectListItem(props: ProjectProps) {
       hover:backdrop-blur-0 hover:backdrop-brightness-100 hover:transition
       "
       >
-        <div className=" z-2 md:text-md text-md my-2	font-extrabold leading-relaxed drop-shadow-md 	 	 ">
-          {project.year}
+        <div className="capitalize z-2 md:text-md text-md my-2	font-extrabold leading-relaxed drop-shadow-md 	 	 ">
+          {project.year} | {project.tags?.map((tag) => worktype.find((type) => type.value === tag)?.title).join(', ')}
         </div>
         <div className="z-2 mb-5 text-xl	font-extrabold leading-relaxed	    md:text-2xl ">
           {project.title}

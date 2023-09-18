@@ -111,7 +111,13 @@ export default defineType({
       type: 'array',
       of: [{ type: 'string' }],
       options: {
-        layout: 'tags',
+        list: [
+          { title: 'Drawings & Paintings', value: 'drawing-painting' },
+          { title: 'Experiences', value: 'experiences' },
+          { title: 'Installations', value: 'installations' },
+          { title: 'Performances', value: 'performances' },
+          { title: 'Prints', value: 'prints' },
+        ],
       },
     }),
     defineField({

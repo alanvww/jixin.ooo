@@ -38,6 +38,13 @@ export function ProjectPage({
     collaboration,
     url,
   } = project || {}
+  const worktype = [
+    { title: 'Drawing & Painting', value: 'drawing-painting' },
+    { title: 'Experience', value: 'experiences' },
+    { title: 'Installation', value: 'installations' },
+    { title: 'Performance', value: 'performances' },
+    { title: 'Print', value: 'prints' }]
+
   return (
     <>
       <ProjectPageHead project={project} title={homePageTitle} />
@@ -51,6 +58,17 @@ export function ProjectPage({
 
               <div className="mb-20 flex flex-col md:flex-row-reverse  ">
                 <div className="flex-1 flex-col">
+                   {/* Work Type */}
+                   {tags && (
+                    <div className="mb-5 md:mb-10 ">
+                      <h2 className="text-lg font-bold text-gray-800/30 dark:text-gray-400/50">
+                        Work Type
+                      </h2>
+                      <p className=" max-w-3xl text-xl text-gray-600 dark:text-white ">
+                        {tags?.map((tag) => worktype.find((type) => type.value === tag)?.title).join(', ')}
+                      </p>
+                    </div>
+                  )}
                   {/* Medium */}
                   {medium && medium != '' && (
                     <div className="mb-5 md:mb-10 ">
