@@ -1,6 +1,19 @@
+import * as reactSpring from '@react-spring/three'
+import * as drei from '@react-three/drei'
+import * as fiber from '@react-three/fiber'
 import { CustomPortableText } from 'components/shared/CustomPortableText'
 import { Header } from 'components/shared/Header'
 import Layout from 'components/shared/Layout'
+// import dynamic from 'next/dynamic'
+import { useRef } from 'react'
+/*
+const Gradient = dynamic(() =>
+  import('shadergradient').then((mod) => mod.Gradient)
+)
+
+const GradientCanvas = dynamic(() =>
+  import('shadergradient').then((mod) => mod.GradientCanvas)
+) */
 import type { PagePayload, SettingsPayload } from 'types'
 
 import PageHead from './PageHead'
@@ -22,6 +35,7 @@ export function Page({
 }: PageProps) {
   // Default to an empty object to allow previews on non-existent documents
   const { body, overview, title } = page || {}
+  const ref = useRef()
 
   return (
     <>
