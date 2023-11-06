@@ -1,6 +1,9 @@
+import 'react-medium-image-zoom/dist/styles.css'
+
 import { urlForImage } from 'lib/sanity.image'
 import Image from 'next/image'
 import { useState } from 'react'
+import Zoom from 'react-medium-image-zoom'
 
 interface ImageBoxProps {
   image?: { asset?: any }
@@ -42,18 +45,20 @@ export default function ImageBox({
       } relative mx-2 my-4 md:mx-auto `}
     >
       {imageUrl && (
-        <Image
-          className="relative h-auto w-full  object-contain"
-          alt={alt}
-          width={500}
-          height={100}
-          sizes={size}
-          src={imageUrl}
-          placeholder="blur"
-          blurDataURL={rgbDataURL(110, 110, 110)}
-          priority={true}
-          onLoadingComplete={() => setLoading(false)}
-        />
+        <Zoom>
+          <Image
+            className="relative h-auto w-full  object-contain"
+            alt={alt}
+            width={500}
+            height={100}
+            sizes={size}
+            src={imageUrl}
+            placeholder="blur"
+            blurDataURL={rgbDataURL(110, 110, 110)}
+            priority={true}
+            onLoadingComplete={() => setLoading(false)}
+          />
+        </Zoom>
       )}
     </div>
   )
