@@ -1,12 +1,17 @@
 import { HomeNavbar } from 'components/global/HomeNavbar'
 import { PreviewBanner } from 'components/preview/PreviewBanner'
-import AnimeBackground from 'components/shared/AnimeBackground'
+import dynamic from 'next/dynamic'
 import { useTheme } from 'next-themes'
 import * as React from 'react'
 import type { HomePagePayload } from 'types'
 import { SettingsPayload } from 'types'
 
 import HomePageHead from './HomePageHead'
+
+const AnimeBackground = dynamic(
+  () => import('components/shared/AnimeBackground'),
+  { ssr: false }
+)
 
 export interface HomePageProps {
   settings: SettingsPayload
