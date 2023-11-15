@@ -10,7 +10,7 @@ import HomePageHead from './HomePageHead'
 
 const AnimeBackground = dynamic(
   () => import('components/shared/AnimeBackground'),
-  { ssr: false }
+  { ssr: false, loading: () => <p>Loading...</p> }
 )
 
 export interface HomePageProps {
@@ -29,7 +29,8 @@ export function HomePage({ page, settings, preview, loading }: HomePageProps) {
       <HomePageHead page={page} settings={settings} />
       {preview && <PreviewBanner loading={loading} />}
       <HomeNavbar menuItems={settings?.menuItems} />
-      <AnimeBackground theme={theme} />
+
+      {/* <AnimeBackground theme={theme} /> */}
     </>
   )
 }
