@@ -1,6 +1,5 @@
 import { ProjectListItem } from 'components/pages/work/ProjectListItem'
 import Layout from 'components/shared/Layout'
-import { motion } from 'framer-motion'
 import { resolveHref } from 'lib/sanity.links'
 import Link from 'next/link'
 import { useState } from 'react'
@@ -15,17 +14,6 @@ export interface WorkPageProps {
   page: WorkPagePayload
   preview?: boolean
   loading?: boolean
-}
-const container = {
-  hidden: { opacity: 0, scale: 1 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: {
-      delayChildren: 0.2,
-      staggerChildren: 0.1,
-    },
-  },
 }
 
 export function WorkPage({ page, settings, preview, loading }: WorkPageProps) {
@@ -203,12 +191,7 @@ export function WorkPage({ page, settings, preview, loading }: WorkPageProps) {
           <Suspense fallback={<p>Loading projects...</p>}>
             {/* Showcase projects */}
             {filteredProjects && filteredProjects.length > 0 ? (
-              <motion.div
-                variants={container}
-                initial="hidden"
-                animate="visible"
-                className="container mx-auto grid max-w-[100rem] gap-4 rounded-md xl:grid-cols-3"
-              >
+              <div className="mx-auto grid max-w-[100rem] gap-4 rounded-md xl:grid-cols-3">
                 {filteredProjects?.map((project, key) => {
                   const href = resolveHref(project._type, project.slug)
                   if (!href) {
@@ -220,7 +203,7 @@ export function WorkPage({ page, settings, preview, loading }: WorkPageProps) {
                     </Link>
                   )
                 })}
-              </motion.div>
+              </div>
             ) : { selectedYear } && { selectedCategory } ? (
               <div className="text-center text-xl text-[#6E6E6E] dark:text-white md:text-2xl">
                 No projects found for{' '}

@@ -1,20 +1,10 @@
-'use client'
 import { CustomPortableText } from 'components/shared/CustomPortableText'
-import { motion } from 'framer-motion'
 import { urlForImage } from 'lib/sanity.image'
 import type { ShowcaseProject } from 'types'
 
 interface ProjectProps {
   project: ShowcaseProject
   odd: number
-}
-
-const item = {
-  hidden: { y: 10, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
-  },
 }
 
 export function ProjectListItem(props: ProjectProps) {
@@ -27,8 +17,7 @@ export function ProjectListItem(props: ProjectProps) {
     { title: 'Print', value: 'prints' },
   ]
   return (
-    <motion.div
-      variants={item}
+    <div
       className={`z-0 grid h-48 gap-x-5 rounded-md border text-[#ffffff]/80 duration-500
        hover:ring-2   hover:ring-green-600 dark:border-[#6E6E6E]`}
       style={{
@@ -58,6 +47,6 @@ export function ProjectListItem(props: ProjectProps) {
           {project.title}
         </div>
       </div>
-    </motion.div>
+    </div>
   )
 }
