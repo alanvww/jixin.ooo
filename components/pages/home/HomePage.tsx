@@ -24,9 +24,7 @@ export function HomePage({ page, settings, preview, loading }: HomePageProps) {
       <HomePageHead page={page} settings={settings} />
       {preview && <PreviewBanner loading={loading} />}
       <HomeNavbar menuItems={settings?.menuItems} />
-      <React.Suspense fallback={<p>Loading...</p>}>
-        <AnimeBackground theme={theme} />
-      </React.Suspense>
+      <AnimeBackground theme={theme} />
     </>
   )
 }

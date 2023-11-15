@@ -1,5 +1,6 @@
 import type { PortableTextBlock } from '@portabletext/types'
-import { CustomPortableText } from 'components/shared/CustomPortableText'
+
+import { CustomPortableText } from '../shared/CustomPortableText'
 
 export function Footer({ footer }: { footer?: PortableTextBlock[] }) {
   return (
