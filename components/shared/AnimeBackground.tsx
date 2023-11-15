@@ -1,3 +1,4 @@
+'use client'
 import p5Types from 'p5'
 import React, { useEffect, useRef } from 'react'
 
