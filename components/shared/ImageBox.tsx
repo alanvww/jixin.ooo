@@ -56,7 +56,7 @@ export default function ImageBox({
             placeholder="blur"
             blurDataURL={rgbDataURL(110, 110, 110)}
             priority={true}
-            onLoadingComplete={() => setLoading(false)}
+            onLoad={() => setLoading(false)}
           />
         </Zoom>
       )}
