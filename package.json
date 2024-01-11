@@ -31,6 +31,7 @@
     "@types/three": "^0.154.0",
     "@vercel/analytics": "^1.0.1",
     "@vercel/og": "0.5.8",
+    "@vercel/speed-insights": "^1.0.2",
     "browserslist": "^4.21.10",
     "classnames": "2.3.2",
     "date-fns": "2.30.0",

@@ -1,6 +1,6 @@
 import 'styles/index.css'
 
-import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import { AppProps } from 'next/app'
 import dynamic from 'next/dynamic'
 import { IBM_Plex_Mono, Nunito_Sans, PT_Serif } from 'next/font/google'
@@ -34,37 +34,39 @@ const PreviewProvider = lazy(() => import('components/preview/PreviewProvider'))
 export default function App({ Component, pageProps }: AppProps) {
   const { preview, token } = pageProps
   return (
-    <ThemeProvider attribute="class">
-      <style jsx global>
-        {`
-          :root {
-            --font-mono: ${mono.style.fontFamily};
-            --font-sans: ${sans.style.fontFamily};
-            --font-serif: ${serif.style.fontFamily};
-          }
-        `}
-      </style>
-      <AnimatedCursor
-        innerSize={8}
-        outerSize={35}
-        innerScale={1}
-        outerScale={2}
-        outerAlpha={0}
-        innerStyle={{
-          backgroundColor: 'var(--cursor-color)',
-        }}
-        outerStyle={{
-          border: '3px solid var(--cursor-color)',
-        }}
-      />
-      {preview ? (
-        <PreviewProvider token={token}>
+    <>
+      <ThemeProvider attribute="class">
+        <style jsx global>
+          {`
+            :root {
+              --font-mono: ${mono.style.fontFamily};
+              --font-sans: ${sans.style.fontFamily};
+              --font-serif: ${serif.style.fontFamily};
+            }
+          `}
+        </style>
+        <AnimatedCursor
+          innerSize={8}
+          outerSize={35}
+          innerScale={1}
+          outerScale={2}
+          outerAlpha={0}
+          innerStyle={{
+            backgroundColor: 'var(--cursor-color)',
+          }}
+          outerStyle={{
+            border: '3px solid var(--cursor-color)',
+          }}
+        />
+        {preview ? (
+          <PreviewProvider token={token}>
+            <Component {...pageProps} />
+          </PreviewProvider>
+        ) : (
           <Component {...pageProps} />
-        </PreviewProvider>
-      ) : (
-        <Component {...pageProps} />
-      )}
-      <Analytics />
-    </ThemeProvider>
+        )}
+      </ThemeProvider>
+      <SpeedInsights />
+    </>
   )
 }
