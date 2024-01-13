@@ -1,3 +1,4 @@
+'use client'
 import { ProjectListItem } from 'components/pages/work/ProjectListItem'
 import Layout from 'components/shared/Layout'
 import { motion } from 'framer-motion'
