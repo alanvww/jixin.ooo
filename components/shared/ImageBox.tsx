@@ -1,5 +1,3 @@
-'use client'
-
 import { urlForImage } from 'lib/sanity.image'
 import Image from 'next/image'
 import { Suspense, useState } from 'react'
@@ -39,41 +37,29 @@ export default function ImageBox({
   const imageUrl = image && urlForImage(image)?.quality(80).url()
 
   return (
-    <Suspense
-      fallback={
-        <div className={'animate-pulse'}>
-          {' '}
-          <Image
-            className="relative h-auto w-full  object-contain"
-            alt={alt}
-            width={500}
-            height={100}
-            sizes={size}
-            src={imageUrl}
-            placeholder="blur"
-            blurDataURL={rgbDataURL(110, 110, 110)}
-            priority={true}
-            onLoad={() => setLoading(false)}
-          />
-        </div>
-      }
+    <div
+      className={`${
+        loading ? 'animate-pulse' : ''
+      } relative mx-2 my-4 md:mx-auto `}
     >
-      <div className={`relative mx-2 my-4 md:mx-auto `}>
-        <Zoom>
-          <Image
-            className="relative h-auto w-full  object-contain"
-            alt={alt}
-            width={500}
-            height={100}
-            sizes={size}
-            src={imageUrl}
-            placeholder="blur"
-            blurDataURL={rgbDataURL(110, 110, 110)}
-            priority={true}
-            onLoad={() => setLoading(false)}
-          />
-        </Zoom>
-      </div>
-    </Suspense>
+      <Suspense>
+        {imageUrl && (
+          <Zoom>
+            <Image
+              className="relative h-auto w-full  object-contain"
+              alt={alt}
+              width={500}
+              height={100}
+              sizes={size}
+              src={imageUrl}
+              placeholder="blur"
+              blurDataURL={rgbDataURL(110, 110, 110)}
+              priority={true}
+              onLoad={() => setLoading(false)}
+            />
+          </Zoom>
+        )}
+      </Suspense>
+    </div>
   )
 }

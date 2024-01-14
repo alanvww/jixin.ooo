@@ -55,7 +55,7 @@ export function ProjectPage({
       <Layout settings={settings} preview={preview} loading={loading}>
         <Suspense fallback={<p>Loading project details...</p>}>
           <div>
-            <div className="mb-20 space-y-6 ">
+            <div className={`${loading ? 'animate-pulse' : 'mb-20 space-y-6'}`}>
               {/* Header */}
               <Header title={title} description={overview} />
 

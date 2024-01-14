@@ -17,14 +17,13 @@ export interface WorkPageProps {
   preview?: boolean
   loading?: boolean
 }
+
 const container = {
-  hidden: { opacity: 0, scale: 1 },
+  hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    scale: 1,
     transition: {
-      delayChildren: 0.2,
-      staggerChildren: 0.1,
+      staggerChildren: 0.03,
     },
   },
 }
