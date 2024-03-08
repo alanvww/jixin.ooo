@@ -20,10 +20,10 @@ export function ProjectListItem(props: ProjectProps) {
   ]
   return (
     <motion.div
-      whileInView={{ opacity: 1, x: 0 }}
-      initial={{ opacity: 0, x: 100 }}
+      whileInView={{ opacity: 1, transform: 'translateX(0px)' }}
+      initial={{ opacity: 0, transform: 'translateX(100px)' }}
       transition={{
-        duration: 0.5,
+        duration: 0.2,
         ease: [0, 0.71, 0.2, 1.01],
       }}
       className={`z-0 grid h-48 gap-x-5 rounded-md border text-[#ffffff]/80 
