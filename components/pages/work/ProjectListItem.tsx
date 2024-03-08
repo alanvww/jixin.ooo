@@ -26,7 +26,7 @@ export function ProjectListItem(props: ProjectProps) {
         duration: 0.2,
         ease: [0, 0.71, 0.2, 1.01],
       }}
-      className={`z-0 grid h-48 gap-x-5 overflow-x-hidden rounded-md border  text-[#ffffff]/80
+      className={`z-0 grid h-48 gap-x-5  rounded-md border  text-[#ffffff]/80
        hover:ring-2   hover:ring-green-600 dark:border-[#6E6E6E]`}
       style={{
         backgroundImage: `url(${urlForImage(project.coverImage)
