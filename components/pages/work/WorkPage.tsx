@@ -207,7 +207,7 @@ export function WorkPage({ page, settings, preview, loading }: WorkPageProps) {
                 variants={container}
                 initial="hidden"
                 animate="visible"
-                className="container mx-auto grid max-w-[100rem] gap-4 rounded-md xl:grid-cols-3"
+                className="container mx-auto grid max-w-[100rem] gap-4 rounded-md  xl:grid-cols-3"
               >
                 {filteredProjects?.map((project, key) => {
                   const href = resolveHref(project._type, project.slug)

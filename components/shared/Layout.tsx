@@ -24,7 +24,7 @@ export default function Layout({
 }: LayoutProps) {
   return (
     <div
-      className={`flex min-h-screen flex-col bg-white text-black dark:bg-black`}
+      className={`flex min-h-screen flex-col overflow-x-hidden bg-white text-black dark:bg-black md:overflow-x-auto`}
     >
       {preview && <PreviewBanner loading={loading} />}
       {preview ? (
