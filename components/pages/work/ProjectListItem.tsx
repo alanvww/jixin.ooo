@@ -9,14 +9,6 @@ interface ProjectProps {
   odd: number
 }
 
-const item = {
-  hidden: { y: 0, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
-  },
-}
-
 export function ProjectListItem(props: ProjectProps) {
   const { project, odd } = props
   const worktype = [
@@ -28,7 +20,12 @@ export function ProjectListItem(props: ProjectProps) {
   ]
   return (
     <motion.div
-      variants={item}
+      whileInView={{ opacity: 1, x: 0 }}
+      initial={{ opacity: 0, x: 100 }}
+      transition={{
+        duration: 0.5,
+        ease: [0, 0.71, 0.2, 1.01],
+      }}
       className={`z-0 grid h-48 gap-x-5 rounded-md border text-[#ffffff]/80 
        hover:ring-2   hover:ring-green-600 dark:border-[#6E6E6E]`}
       style={{
