@@ -9,14 +9,6 @@ interface ProjectProps {
   odd: number
 }
 
-const item = {
-  hidden: { y: 0, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
-  },
-}
-
 export function ProjectListItem(props: ProjectProps) {
   const { project, odd } = props
   const worktype = [
@@ -28,8 +20,13 @@ export function ProjectListItem(props: ProjectProps) {
   ]
   return (
     <motion.div
-      variants={item}
-      className={`z-0 grid h-48 gap-x-5 rounded-md border text-[#ffffff]/80 
+      whileInView={{ opacity: 1, transform: 'translateX(0px)' }}
+      initial={{ opacity: 0, transform: 'translateX(100px)' }}
+      transition={{
+        duration: 0.2,
+        ease: [0, 0.71, 0.2, 1.01],
+      }}
+      className={`z-0 grid h-48 gap-x-5  rounded-md border  text-[#ffffff]/80
        hover:ring-2   hover:ring-green-600 dark:border-[#6E6E6E]`}
       style={{
         backgroundImage: `url(${urlForImage(project.coverImage)
