@@ -215,7 +215,7 @@ export function WorkPage({ page, settings, preview, loading }: WorkPageProps) {
                     return <></>
                   }
                   return (
-                    <Link key={key} href={href}>
+                    <Link key={project.slug} href={href}>
                       <ProjectListItem project={project} odd={key % 2} />
                     </Link>
                   )
