@@ -76,5 +76,6 @@
   },
   "overrides": {
     "@types/react": "npm:types-react@19.0.0-rc.1"
-  }
+  },
+  "packageManager": "^npm@10.8.2"
 }
