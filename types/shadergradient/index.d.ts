@@ -1,5 +1,7 @@
 import { CanvasProps } from '@react-three/fiber'
 
+import type { JSX } from "react";
+
 declare module 'shadergradient' {
   export type MeshT = {
     type?: 'plane' | 'sphere' | 'waterPlane'

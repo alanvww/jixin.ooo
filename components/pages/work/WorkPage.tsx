@@ -215,13 +215,13 @@ export function WorkPage({ page, settings, preview, loading }: WorkPageProps) {
                     return <></>
                   }
                   return (
-                    <Link key={key} href={href}>
+                    <Link key={project.slug} href={href}>
                       <ProjectListItem project={project} odd={key % 2} />
                     </Link>
                   )
                 })}
               </motion.div>
-            ) : { selectedYear } && { selectedCategory } ? (
+            ) : selectedYear && selectedCategory ? (
               <div className="text-center text-xl text-[#6E6E6E] dark:text-white md:text-2xl">
                 No projects found for{' '}
                 {

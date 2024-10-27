@@ -35,7 +35,7 @@ export function Page({
 }: PageProps) {
   // Default to an empty object to allow previews on non-existent documents
   const { body, overview, title } = page || {}
-  const ref = useRef()
+  const ref = useRef(undefined)
 
   return (
     <>
