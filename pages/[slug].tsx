@@ -74,7 +74,7 @@ export const getStaticPaths = async () => {
   const paths = await client.fetch<string[]>(pagePaths)
 
   return {
-    paths: ['/contact'] || [],
+    paths: ['/contact'],
     fallback: false,
   }
 }
