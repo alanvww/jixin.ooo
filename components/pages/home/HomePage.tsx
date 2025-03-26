@@ -7,6 +7,7 @@ import type { HomePagePayload } from 'types'
 import { SettingsPayload } from 'types'
 
 import HomePageHead from './HomePageHead'
+import { set } from 'sanity'
 
 const AnimeBackground = dynamic(
   () => import('components/shared/AnimeBackground'),
@@ -23,6 +24,8 @@ export interface HomePageProps {
 export function HomePage({ page, settings, preview, loading }: HomePageProps) {
   const { title = 'Personal website' } = page ?? {}
   const { theme, setTheme } = useTheme()
+  const { resolvedTheme } = useTheme()
+  setTheme(resolvedTheme)
 
   return (
     <>

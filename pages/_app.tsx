@@ -6,7 +6,9 @@ import { SpeedInsights } from '@vercel/speed-insights/next'
 import { AppProps } from 'next/app'
 import dynamic from 'next/dynamic'
 import { IBM_Plex_Mono, Nunito_Sans, PT_Serif } from 'next/font/google'
+import { useRouter } from 'next/router'
 import { ThemeProvider } from 'next-themes'
+import { useEffect } from 'react'
 import { lazy } from 'react'
 
 const AnimatedCursor = dynamic(() => import('react-animated-cursor'), {
@@ -33,11 +35,27 @@ const serif = PT_Serif({
 
 const PreviewProvider = lazy(() => import('components/preview/PreviewProvider'))
 
+
 export default function App({ Component, pageProps }: AppProps) {
   const { preview, token } = pageProps
+  const router = useRouter()
+  const isMaintenanceMode = process.env.NEXT_PUBLIC_MAINTENANCE_MODE === 'true'
+  const isHomePage = router.pathname === '/' || router.pathname.includes('/studio')
+
+  // Redirect to homepage if in maintenance mode and not already on homepage
+  useEffect(() => {
+    if (isMaintenanceMode && !isHomePage) {
+      router.push('/')
+    }
+  }, [isMaintenanceMode, isHomePage, router])
   return (
     <>
-      <ThemeProvider attribute="class">
+      <ThemeProvider
+        attribute="data-mode"
+        defaultTheme="system"
+        enableSystem={true}
+        storageKey="theme"
+      >
         <style jsx global>
           {`
             :root {
@@ -60,13 +78,8 @@ export default function App({ Component, pageProps }: AppProps) {
             border: '3px solid var(--cursor-color)',
           }}
         />
-        {preview ? (
-          <PreviewProvider token={token}>
-            <Component {...pageProps} />
-          </PreviewProvider>
-        ) : (
-          <Component {...pageProps} />
-        )}
+        <Component {...pageProps} />
+
       </ThemeProvider>
       <Analytics />
       <SpeedInsights />

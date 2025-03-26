@@ -2,7 +2,7 @@ const { theme } = require('@sanity/demo/tailwind')
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: 'class',
+  darkMode: ['selector', '[data-mode="dark"]'],
   content: [
     './app/**/*.{js,ts,jsx,tsx,mdx}',
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
