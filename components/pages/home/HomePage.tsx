@@ -3,11 +3,11 @@ import { PreviewBanner } from 'components/preview/PreviewBanner'
 import dynamic from 'next/dynamic'
 import { useTheme } from 'next-themes'
 import * as React from 'react'
+import { set } from 'sanity'
 import type { HomePagePayload } from 'types'
 import { SettingsPayload } from 'types'
 
 import HomePageHead from './HomePageHead'
-import { set } from 'sanity'
 
 const AnimeBackground = dynamic(
   () => import('components/shared/AnimeBackground'),
