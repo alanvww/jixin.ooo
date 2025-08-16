@@ -3,7 +3,6 @@
 import { CustomPortableText } from 'components/shared/CustomPortableText'
 import { Header } from 'components/shared/Header'
 import ScrollUp from 'components/shared/ScrollUp'
-import Link from 'next/link'
 import { Suspense } from 'react'
 import type { ProjectPayload, SettingsPayload } from 'types'
 
@@ -139,9 +138,9 @@ export function ProjectPage({
                         URL
                       </h2>
                       <p className=" max-w-3xl text-xl text-gray-600 dark:text-white">
-                        <Link href={url} target="_blank">
+                        <a href={url.toString()} target="_blank" rel="noreferrer noopener">
                           {url.toString()}
-                        </Link>
+                        </a>
                       </p>
                     </div>
                   )}

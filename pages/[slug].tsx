@@ -2,7 +2,6 @@ import { Page } from 'components/pages/page/Page'
 import PagePreview from 'components/pages/page/PagePreview'
 import { readToken } from 'lib/sanity.api'
 import { getClient } from 'lib/sanity.client'
-import { resolveHref } from 'lib/sanity.links'
 import {
   pagePaths,
   pagesBySlugQuery,

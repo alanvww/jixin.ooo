@@ -2,8 +2,6 @@ import { HomeNavbar } from 'components/global/HomeNavbar'
 import { PreviewBanner } from 'components/preview/PreviewBanner'
 import dynamic from 'next/dynamic'
 import { useTheme } from 'next-themes'
-import * as React from 'react'
-import { set } from 'sanity'
 import type { HomePagePayload } from 'types'
 import { SettingsPayload } from 'types'
 
@@ -23,9 +21,7 @@ export interface HomePageProps {
 
 export function HomePage({ page, settings, preview, loading }: HomePageProps) {
   const { title = 'Personal website' } = page ?? {}
-  const { theme, setTheme } = useTheme()
-  const { resolvedTheme } = useTheme()
-  setTheme(resolvedTheme)
+  const { theme } = useTheme()
 
   return (
     <>

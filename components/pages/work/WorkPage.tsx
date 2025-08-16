@@ -90,7 +90,6 @@ export function WorkPage({ page, settings, preview, loading }: WorkPageProps) {
     filteredProjects = filteredProjects?.filter((project) => {
       return project.tags && project.tags.includes(selectedCategory)
     })
-    console.log(selectedCategory)
   } else {
     filteredProjects = showcaseProjects?.sort(
       (a: any, b: any) => b.year - a.year
@@ -128,7 +127,7 @@ export function WorkPage({ page, settings, preview, loading }: WorkPageProps) {
                   setIsYearExpanded(!isYearExpanded)
                 }}
               >
-                <a>By Year</a>
+                By Year
               </button>
               <button
                 className={
@@ -138,7 +137,7 @@ export function WorkPage({ page, settings, preview, loading }: WorkPageProps) {
                   setIsCateExpanded(!isCateExpanded)
                 }}
               >
-                <a>By Work Type</a>
+                By Work Type
               </button>
             </div>
 
