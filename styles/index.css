@@ -20,7 +20,7 @@ html {
   --cursor-color: #6e6e6e;
 }
 
-html.dark {
+html.dark, html[data-mode='dark'] {
   --cursor-color: #fff;
 }
 

@@ -7,9 +7,9 @@ export default function PreviewProvider({
   token,
 }: {
   children: React.ReactNode
-  token: string
+  token?: string
 }) {
-  const client = useMemo(() => getClient({ token }), [token])
+  const client = useMemo(() => getClient(token ? { token } : undefined), [token])
   return (
     <LiveQueryProvider client={client} logger={console}>
       {children}

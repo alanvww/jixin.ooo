@@ -9,7 +9,7 @@ import { IBM_Plex_Mono, Nunito_Sans, PT_Serif } from 'next/font/google'
 import { useRouter } from 'next/router'
 import { ThemeProvider } from 'next-themes'
 import { useEffect } from 'react'
-import { lazy } from 'react'
+import { lazy, Suspense } from 'react'
 
 const AnimatedCursor = dynamic(() => import('react-animated-cursor'), {
   ssr: false,
@@ -65,7 +65,10 @@ export default function App({ Component, pageProps }: AppProps) {
             }
           `}
         </style>
-        <AnimatedCursor
+        {preview ? (
+          <Suspense fallback={null}>
+            <PreviewProvider token={token}>
+              <AnimatedCursor
           innerSize={8}
           outerSize={35}
           innerScale={1}
@@ -78,7 +81,27 @@ export default function App({ Component, pageProps }: AppProps) {
             border: '3px solid var(--cursor-color)',
           }}
         />
-        <Component {...pageProps} />
+                           <Component {...pageProps} />
+             </PreviewProvider>
+           </Suspense>
+         ) : (
+           <>
+             <AnimatedCursor
+              innerSize={8}
+              outerSize={35}
+              innerScale={1}
+              outerScale={2}
+              outerAlpha={0}
+              innerStyle={{
+                backgroundColor: 'var(--cursor-color)',
+              }}
+              outerStyle={{
+                border: '3px solid var(--cursor-color)',
+              }}
+            />
+            <Component {...pageProps} />
+          </>
+        )}
 
       </ThemeProvider>
       <Analytics />
