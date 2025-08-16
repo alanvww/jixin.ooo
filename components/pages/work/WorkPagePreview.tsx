@@ -1,5 +1,5 @@
 import { homePageQuery } from 'lib/sanity.queries'
-import { useLiveQuery } from 'next-sanity/preview'
+import { useLiveQuery } from '@sanity/preview-kit'
 import type { HomePagePayload } from 'types'
 
 import { WorkPage, WorkPageProps } from './WorkPage'

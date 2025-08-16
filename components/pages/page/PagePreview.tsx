@@ -1,5 +1,5 @@
 import { pagesBySlugQuery } from 'lib/sanity.queries'
-import { useLiveQuery } from 'next-sanity/preview'
+import { useLiveQuery } from '@sanity/preview-kit'
 import type { PagePayload } from 'types'
 
 import { Page, PageProps } from './Page'

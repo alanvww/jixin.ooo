@@ -93,6 +93,9 @@ function draw() {
     beginShape()
     for (var j = 0; j < 360; j += 60) {
       var rad = i * 8
+      var x = cos(j) * rad
+      var y = sin(j) * rad
+      vertex(x, y)
     }
     endShape(CLOSE)
   }
@@ -110,14 +113,15 @@ function draw() {
       var z2 = sin(frameCount * 4 + i * 2) * 60
       noFill()
       //stroke(rod,rod,rod);
+      var x2 = cos(j2) * rad2
+      var y2 = sin(j2) * rad2
+      vertex(x2, y2, z2)
     }
     endShape(CLOSE)
   }
 }
 
 function BubblesBase(x, y, z, r, up) {
-  bonk = up
-
   var bonk = up
   this.bx = x
   this.by = y

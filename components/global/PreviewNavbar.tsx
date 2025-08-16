@@ -1,5 +1,5 @@
 import { settingsQuery } from 'lib/sanity.queries'
-import { useLiveQuery } from 'next-sanity/preview'
+import { useLiveQuery } from '@sanity/preview-kit'
 import type { SettingsPayload } from 'types'
 
 import { Navbar } from './Navbar'
