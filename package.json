@@ -78,5 +78,8 @@
     "turbo": "^2.5.6",
     "typescript": "^5.9.2"
   },
-  "packageManager": "^npm@10.8.2"
+  "packageManager": "^npm@10.8.2",
+  "overrides": {
+    "rollup": "^4.59.0"
+  }
 }
