@@ -5,7 +5,7 @@ import { getSecret } from 'plugins/productionUrl/utils'
 import { ComponentProps, Suspense } from 'react'
 import { memo } from 'react'
 import { useClient } from 'sanity'
-import { UserViewComponent } from 'sanity/desk'
+import { UserViewComponent } from 'sanity/structure'
 import { suspend } from 'suspend-react'
 
 /**
@@ -67,7 +67,6 @@ const Iframe = memo(function Iframe(props: IframeProps) {
   const client = useClient({ apiVersion })
 
   const secret = suspend(
-    //@ts-ignore
     () => getSecret(client, previewSecretId, true),
     ['getSecret', previewSecretId, fetchSecret],
     // The secret fetch has a TTL of 1 minute, just to check if it's necessary to recreate the secret which has a TTL of 60 minutes

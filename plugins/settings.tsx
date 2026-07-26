@@ -4,7 +4,7 @@
 
 import { apiVersion, previewSecretId } from 'lib/sanity.api'
 import { type DocumentDefinition } from 'sanity'
-import { type StructureResolver } from 'sanity/desk'
+import { type StructureResolver } from 'sanity/structure'
 
 import { PREVIEWABLE_DOCUMENT_TYPES } from '../sanity.config'
 import { PreviewPane } from './previewPane/PreviewPane'
