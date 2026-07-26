@@ -14,14 +14,16 @@ export async function getServerSideProps({ res }) {
       "projects": *[_type == 'project']{slug},
     }`
   const urls = await client.fetch(query)
-  const projects = urls.projects.map((page) => {
-    const slug = page.slug.current === '/' ? '/' : `/${page.slug.current}`
-    return `
+  const projects = urls.projects
+    .filter((page) => page?.slug?.current)
+    .map((page) => {
+      const slug = page.slug.current === '/' ? '/' : `/${page.slug.current}`
+      return `
       <loc>${baseUrl}${slug}</loc>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     `
-  })
+    })
 
   const locations = [...projects]
   const createSitemap = () => `<?xml version="1.0" encoding="UTF-8"?>
