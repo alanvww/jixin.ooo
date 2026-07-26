@@ -25,7 +25,7 @@ export function getClient(preview?: { token: string }): SanityClient {
 			token: preview.token,
 			useCdn: false,
 			ignoreBrowserTokenWarning: true,
-			perspective: 'previewDrafts',
+			perspective: 'drafts',
 		})
 	}
 	return client

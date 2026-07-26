@@ -5,7 +5,7 @@ import { getSecret } from 'plugins/productionUrl/utils'
 import { ComponentProps, Suspense } from 'react'
 import { memo } from 'react'
 import { useClient } from 'sanity'
-import { UserViewComponent } from 'sanity/desk'
+import { UserViewComponent } from 'sanity/structure'
 import { suspend } from 'suspend-react'
 
 /**
