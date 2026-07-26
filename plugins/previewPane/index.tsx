@@ -4,7 +4,7 @@
 // It's part of the Studio's “Structure Builder API” and is documented here:
 // https://www.sanity.io/docs/structure-builder-reference
 
-import { DefaultDocumentNodeResolver } from 'sanity/desk'
+import { DefaultDocumentNodeResolver } from 'sanity/structure'
 
 import { PREVIEWABLE_DOCUMENT_TYPES } from '../../sanity.config'
 import { PreviewPane } from './PreviewPane'
